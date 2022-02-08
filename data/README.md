@@ -1,6 +1,6 @@
 Les données proviennent d'une extraction de la base de données de l'équipe. Il vous est demandé de **ne pas les publier ni les stocker** sur un cloud ou tout autre hébergement. La raison est que pour leur utilisation, nous (mon équipe), préferons que les utilisateurs nous contactent.
 
-**Répertoire à laisser vide sur gitlab** mais qui localement devrait contenir les fichiers CSV de départ :
+**Répertoire à laisser vide sur gitlab** mais qui localement devrait contenir les fichiers CSV de départ (récupérés sur https://silico.biotoul.fr/enseignement/m1/datamining/projet/data/):
 
 - Assembly.tsv.gz
 - Chromosome.tsv.gz
