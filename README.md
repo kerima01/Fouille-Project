@@ -3,7 +3,7 @@
 Ce projet GitLab va servir de point de départ pour la remise du projet de fouille de données. Il s'agit depuis votre compte GitLab de créer un projet à partir de ce dépôt pour récupérer la structure de base et au fur et à mesure y ajouter les scripts de préparation des données pour obtenir matrice individus-variables qui servira pour la prise en main, et ensuite l'analyse, et enfin le rapport.
 
 
-Il y a donc quelques répertoires qu'il vous faudra utiliser et compléter :
+Il y a donc quelques répertoires qu'il vous faudra utiliser et compléter (et nettoyer pour le rendu final) :
 
 - `data.preparation`: il va contenir un sous-répertoire avec les scripts (R, python, bash, ...) permettant, à partir des fichiers de données fournis, d'obtenir la matrice pour l'analyse de fouille de données. Il doit contenir aussi la documentation utilisateur qui indiquera comment configurer et utiliser les scripts pour obtenir la matrice.
 
@@ -17,8 +17,8 @@ Il y a donc quelques répertoires qu'il vous faudra utiliser et compléter :
 # Calendrier 2021-22
 
 - **fin février** Groupes de projet (les membres du même groupe ne doivent pas faire parti du même groupe que pour le PTUT), et définition des objectifs (quelles matrices individus-variables pour quelles analyses)
-- **début avril** Matrice de données *individus-variables* à fournir avec les scripts et la documentation utilisateur pour l'obtenir (cf. répertoire data.preparation).
-- **début mai** Fin du projet: Roland B. récupérera les dépôts de chaque projet pour évaluation (notamment les répertoires analysis et rapport).
+- **début avril** Matrice de données *individus-variables* à fournir avec les scripts et la documentation utilisateur pour l'obtenir (cf. répertoire [data.preparation](./data.preparation)). Il faudra **envoyer un mail à Roland B. avec le lien vers votre projet** GitLab et aussi que votre projet soit accessible par lui (ajouter l'utilisateur rbarriot aux membres du projet avec le rôle *developper* ou *maintainer*).
+- **début mai** Fin du projet: **envoyer un mail à Roland B.** qui récupérera les dépôts de chaque projet pour évaluation (notamment les répertoires analysis et [rapport](./rapport)).
 
 # Première étape : compte GitLab et clonage du projet
 
