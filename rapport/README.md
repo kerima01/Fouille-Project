@@ -1,6 +1,26 @@
-Pour la remise du projet, un fichier Markdown consitutant le rapport devrait remplacer ce README.
+# Préambule concernant la remise du projet
 
-Bien qu'au format markdown, il est attendu un vrai rapport de projet.
+Pour la remise du projet, il s'agit d'envoyer un mail à Roland B. lorsque votre projet GitLab sera finalisé.
+
+**Pour l'évaluation, c'est le rapport de projet qui va compter le plus. Le reste de ce qui se trouve sur votre projet GitLab pourra éventuellement servir pour des éclaircissements lorsque ce n'est pas suffisamment clair dans le rapport.** 
+
+Le rapport consiste en un fichier Markdown et devrait remplacer ce README.
+
+Bien qu'au format markdown, il est attendu un vrai rapport de projet : similaire à **un rapport** de stage et **devant se suffire à lui-même**, c'est-à-dire qu'il n'est pas nécessaire d'aller fouiller ailleurs dans votre projet GitLab pour comprendre ce qui a été fait, pourquoi, comment, pour quels résultats, quelles conclusions et quelles perspectives.
+
+Points à vérifier avant la remise finale :
+
+  * **Nettoyage :** supprimer tous les fichiers et répertoires qui ne sont pas nécessaires dans l'ensemble de votre projet GitLab afin qu'il ne reste que les informations utiles et pertinentes.
+  * **Rapport :** vérifier que le rapport est bien présent dans ce répertoire et s'affiche correctement.
+  * **Page d'accueil :** suggestion → ne laisser qu'une courte accroche sur la teneur de votre projet et mettre un lien vers le rapport
+
+**Remarques :** 
+
+  * il n'est pas impossible que vous utilisiez ultérieurement votre projet GitLab de fouille de données afin de mettre en valeur votre parcours pour soutenir une candidature à un poste.
+  * pensez à utiliser le correcteur d'orthographe et/ou vous faire relire par quelqu'un d'autre
+  * un rapport de projet ne contient en général pas de code, il faut plutôt décrire le concept et renvoyer éventuellement aux scripts qui seraient dans des annexes (« ce que l'on conçoit bien s'énonce clairement, et les mots pour le dire arrivent aisément », Nicolas Boileau)
+
+
 
 # Contexte
 
@@ -18,11 +38,11 @@ Effectuez une ou des analyses préliminaires des données pour les appréhender 
 
 Fort de l'analyse précedente, présenter l'approche choisie et pourquoi. 
 
-Ensuite, présenter quelle méthodologie allez-vous mettre en oeuvre pour les différentes étapes du projet avec quelles méthodes :
+Ensuite, présenter quelle méthodologie vous allez mettre en oeuvre pour les différentes étapes du projet avec quelles méthodes :
 
   * Tout d'abord, présenter comment va être obtenue la matrice individus-variables+classes (sélection, transformation, nettoyage, ...)
-  * Puis, comment elle être utilisée pour produire des résultats (par exemple : quelle(s) méthode(s) de classification ou de clustering)
-  * Enfin, quelle méthodologie sera mise en oeuvre pour évaluation les résultats obtenus (quelles mesures ou indicateurs, . 
+  * Puis, comment elle va être utilisée pour produire des résultats (par exemple : quelle(s) méthode(s) de classification ou de clustering)
+  * Enfin, quelle méthodologie sera mise en oeuvre pour l'évaluation des résultats obtenus (quelles mesures ou indicateurs pour évaluer quoi)
 
 # Réalisation
 
@@ -42,7 +62,7 @@ Qu'est-ce qui fonctionne ou pas.
 
 Pistes d'amélioration. 
 
-Recul sur l'ensemble du projet. 
+Recul sur l'ensemble du projet et votre manière de l'aborder et de le réaliser. 
 
 Si c'était à refaire... ou bien, quelles pourraient être les pistes d'investigation subséquentes ouvertes par les résultats obtenus ?
 
