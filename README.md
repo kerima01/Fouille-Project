@@ -5,7 +5,7 @@ Ce projet GitLab va servir de point de départ pour la remise du projet de fouil
 
 Il y a donc quelques répertoires qu'il vous faudra utiliser et compléter (et nettoyer pour le rendu final) :
 
-- `data.preparation`: il va contenir un sous-répertoire avec les scripts (R, python, bash, ...) permettant, à partir des fichiers de données fournis, d'obtenir la matrice pour l'analyse de fouille de données. Il doit contenir aussi la documentation utilisateur qui indiquera comment configurer et utiliser les scripts pour obtenir la matrice.
+- `data.preparation`: il va contenir un sous-répertoire avec les scripts (R, python, bash, ...) permettant, à partir des fichiers de données fournis, d'obtenir la matrice (individus-variables ou individus-variables+classe) pour l'analyse de fouille de données. Il doit contenir aussi la documentation utilisateur qui indiquera comment configurer et utiliser les scripts pour obtenir la matrice.
 
 - `analysis`: ce répertoire contiendra les scripts (R, python, ...) et/ou workflows (Knime, ...) ayant servi à l'analyse de la matrice de données et l'évaluation des performances.
 
@@ -14,9 +14,9 @@ Il y a donc quelques répertoires qu'il vous faudra utiliser et compléter (et n
 - `data`: ce répertoire contient en théorie les fichiers CSV fournis mais **il ne faut pas** concrètement les mettre sur GitLab (ni autre site accessible) puisque tout le monde les a déjà. En paramétrant git, cela permet de les avoir en local, avec les mêmes chemins et les mêmes noms, sans avoir à les mettre sur GitLab, et ainsi, les scripts de préparation des données devraient fonctionner plus facilement.
 
 
-# Calendrier 2021-22
+# Calendrier 2022-23
 
-- **fin février** Groupes de projet (les membres du même groupe ne doivent pas faire parti du même groupe que pour le PTUT), et définition des objectifs (quelles matrices individus-variables pour quelles analyses)
+- **fin février** Groupes de projet (2 personnes par groupe), et définition des objectifs (quelles matrices individus-variables pour quelles analyses)
 - **début avril** Matrice de données *individus-variables* à fournir avec les scripts et la documentation utilisateur pour l'obtenir (cf. répertoire [data.preparation](./data.preparation)). Il faudra **envoyer un mail à Roland B. avec le lien vers votre projet** GitLab et aussi que votre projet soit accessible par lui (ajouter l'utilisateur rbarriot aux membres du projet avec le rôle *developper* ou *maintainer*).
 - **début mai** Fin du projet: **envoyer un mail à Roland B.** qui récupérera les dépôts de chaque projet pour évaluation (notamment les répertoires analysis et [rapport](./rapport)).
 
