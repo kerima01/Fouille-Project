@@ -16,9 +16,9 @@ Il y a donc quelques répertoires qu'il vous faudra utiliser et compléter (et n
 
 # Calendrier 2022-23
 
-- **fin février** Groupes de projet (2 personnes par groupe), et définition des objectifs (quelles matrices individus-variables pour quelles analyses)
-- **début avril** Matrice de données *individus-variables* à fournir avec les scripts et la documentation utilisateur pour l'obtenir (cf. répertoire [data.preparation](./data.preparation)). Il faudra **envoyer un mail à Roland B. avec le lien vers votre projet** GitLab et aussi que votre projet soit accessible par lui (ajouter l'utilisateur rbarriot aux membres du projet avec le rôle *developper* ou *maintainer*).
-- **début mai** Fin du projet: **envoyer un mail à Roland B.** qui récupérera les dépôts de chaque projet pour évaluation (notamment les répertoires analysis et [rapport](./rapport)).
+- **Etape 1 - 24 février** Groupes de projet (2 personnes par groupe), et définition des objectifs (quelles matrices individus-variables pour quelles analyses)
+- **Etape 2 - 31 mars** Matrice de données *individus-variables* à fournir avec les scripts et la documentation utilisateur pour l'obtenir (cf. répertoire [data.preparation](./data.preparation)). Il faudra **envoyer un mail à Roland B. avec le lien vers votre projet** GitLab et aussi que votre projet soit accessible par lui (ajouter l'utilisateur rbarriot aux membres du projet avec le rôle *developper* ou *maintainer*).
+- **Etape 3 - 14 avril** Fin du projet: **envoyer un mail à Roland B.** qui récupérera les dépôts de chaque projet pour évaluation (notamment les répertoires analysis et [rapport](./rapport)).
 
 # Première étape : compte GitLab et clonage du projet
 

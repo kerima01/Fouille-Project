@@ -18,7 +18,7 @@ Points à vérifier avant la remise finale :
 
   * il n'est pas impossible que vous utilisiez ultérieurement votre projet GitLab de fouille de données afin de mettre en valeur votre parcours pour soutenir une candidature à un poste.
   * pensez à utiliser le correcteur d'orthographe et/ou vous faire relire par quelqu'un d'autre
-  * un rapport de projet ne contient en général pas de code, il faut plutôt décrire le concept et renvoyer éventuellement aux scripts qui seraient dans des annexes (« ce que l'on conçoit bien s'énonce clairement, et les mots pour le dire arrivent aisément », Nicolas Boileau)
+  * un rapport de projet ne contient en général pas de code, il faut plutôt décrire le(s) concept(s) et renvoyer éventuellement aux scripts qui seraient dans des annexes (« ce que l'on conçoit bien s'énonce clairement, et les mots pour le dire arrivent aisément », Nicolas Boileau)
 
 
 
@@ -70,7 +70,7 @@ Si c'était à refaire... ou bien, quelles pourraient être les pistes d'investi
 
   * Comment s’est organisé le groupe. 
   * Comment se sont déroulées les discussions, les prises de décisions. 
-  * Comment se sont répartities les tâches. Qui a fait quoi. 
+  * Comment se sont réparties les tâches. Qui a fait quoi. 
   * Quels ont été les rôles et les contributions de chacun·e. 
   * Diagramme de Gantt avec le calendrier et les tâches.
 

@@ -12,3 +12,4 @@ Les données proviennent d'une extraction de la base de données de l'équipe. I
 - Strain.tsv.gz
 - Taxonomy.tsv.gz
 
+**Remarque :** Si vous travaillez sur un autre projet utilisant des données autres que celles fournies sur les ABC, il faudra soit les mettre ici, soit indiquer une procédure (qui fonctionne) pour les récupérer (et pouvoir faire les tests)

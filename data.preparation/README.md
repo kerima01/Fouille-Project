@@ -1,6 +1,6 @@
 Scripts accompagnés de la documentation utilisateur permettant d'obtenir la matrice *individus-variables* qui servira pour le projet.
 
-**Pour le 10 avril 2022**, vous devez ajouter dans ce répertoire **l'ensembles des scripts** qui me permettront d'obtenir **la même matrice que vous** pour la suite de votre projet. Envoyez-moi également le lien vers votre projet gitlab (avec les permissions suffisantes pour que je puisse y accéder).
+**Pour l'étape 2 (cf. calendrier)**, vous devez ajouter dans ce répertoire **l'ensembles des scripts** qui me permettront d'obtenir **la même matrice que vous** pour la suite de votre projet. Envoyez-moi également le lien vers votre projet GitLab (avec les permissions suffisantes pour que je puisse y accéder).
 
 Les scripts ne devraient utiliser que les données disponibles dans le répertoire `../data` ou bien la base de données fournie. Si des données supplémentaires sont utilisées, il vous faut les inclure dans votre répertoire `../data`.
 
@@ -11,8 +11,8 @@ Le plan proposé est :
   → à partir de quels fichiers de départs (ou quelles tables)\
   → pour arriver à quelle matrice\
   → comment (utiliser tel script qui fait ceci de telle manière, puis tel autre qui fait cela, ...)
-- pourquoi faire par la suite\
+- pour faire quoi par la suite\
   → un peu plus de précisions sur ce que contient la matrice et comment vont être utilisées les lignes et les colonnes pour la classification ou le clustering.
 
 
-**Remarque :** à la suite de ce dépôt le 10 avril, vous avez la possibilité d'apporter des modifications à votre matrice (et donc aux scripts pour l'obtenir) si elle ne s'avérait pas parfaitement adaptée ou incomplète par rapport à l'analyse que vous aviez prévue.
+**Remarque :** à la suite de ce dépôt, vous avez la possibilité d'apporter des modifications à votre matrice (et donc aux scripts pour l'obtenir) si elle ne s'avérait pas parfaitement adaptée ou incomplète par rapport à l'analyse que vous aviez prévue.
