@@ -1,10 +1,10 @@
 # Préambule concernant la remise du projet
 
-Pour la remise du projet, il s'agit d'envoyer un mail à Roland B. lorsque votre projet GitLab sera finalisé.
+Pour la remise du projet, il s'agit d'envoyer un mail à RB lorsque votre projet GitLab sera finalisé.
 
 **Pour l'évaluation, c'est le rapport de projet qui va compter le plus. Le reste de ce qui se trouve sur votre projet GitLab pourra éventuellement servir pour des éclaircissements lorsque ce n'est pas suffisamment clair dans le rapport.** 
 
-Le rapport consiste en un fichier Markdown et devrait remplacer ce README.
+Le rapport consiste en un fichier Markdown et devra remplacer ce README.
 
 Bien qu'au format markdown, il est attendu un vrai rapport de projet : similaire à **un rapport** de stage et **devant se suffire à lui-même**, c'est-à-dire qu'il n'est pas nécessaire d'aller fouiller ailleurs dans votre projet GitLab pour comprendre ce qui a été fait, pourquoi, comment, pour quels résultats, quelles conclusions et quelles perspectives.
 
@@ -24,7 +24,7 @@ Points à vérifier avant la remise finale :
 
 # Contexte
 
-Une brêve introduction sur le contexte (ABC) et les objectifs clairs du projet : quelle question est posée.
+Une brêve introduction sur le contexte (par exemple les systèmes ABC) et les objectifs clairs du projet : quelle question est posée.
 
 ![Transporteur ABC](transporteurs.png)
 

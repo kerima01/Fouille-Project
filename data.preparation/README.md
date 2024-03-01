@@ -1,14 +1,14 @@
-Scripts accompagnés de la documentation utilisateur permettant d'obtenir la matrice *individus-variables* qui servira pour le projet.
+Scripts accompagnés de la documentation utilisateur permettant d'obtenir la matrice *individus-variables* qui servira pour le projet à partir des fichiers présents dans le répertoire [data](../data) de votre projet.
 
-**Pour l'étape 2 (cf. calendrier)**, vous devez ajouter dans ce répertoire **l'ensembles des scripts** qui me permettront d'obtenir **la même matrice que vous** pour la suite de votre projet. Envoyez-moi également le lien vers votre projet GitLab (avec les permissions suffisantes pour que je puisse y accéder).
+**Pour la phase B (cf. [calendrier](../README.md#calendrier))**, vous devez ajouter dans ce répertoire **l'ensembles des scripts** qui me permettront d'obtenir **la même matrice que vous** pour la suite de votre projet.
 
-Les scripts ne devraient utiliser que les données disponibles dans le répertoire `../data` ou bien la base de données fournie. Si des données supplémentaires sont utilisées, il vous faut les inclure dans votre répertoire `../data`.
+Les scripts ne devraient utiliser que les données disponibles dans le répertoire [data](../data).
 
 Je vous demande également de rédiger un peu de documentation pour cette partie. Il s'agit de remplacer ce README pour indiquer à l'utilisateur (rbarriot) comment faire pour obtenir votre matrice.
 
 Le plan proposé est :
 - qu'est-ce qu'on essaye de faire :\
-  → à partir de quels fichiers de départs (ou quelles tables)\
+  → à partir de quels fichiers de départs\
   → pour arriver à quelle matrice\
   → comment (utiliser tel script qui fait ceci de telle manière, puis tel autre qui fait cela, ...)
 - pour faire quoi par la suite\

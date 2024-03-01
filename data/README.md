@@ -1,15 +1,3 @@
-Les données proviennent d'une extraction de la base de données de l'équipe. Il vous est demandé de **ne pas les publier ni les stocker** sur un cloud ou tout autre hébergement. La raison est que pour leur utilisation, nous (mon équipe), préferons que les utilisateurs nous contactent.
+Ce répertoire devrait contenir les fichiers de données de départ accompagnés de leur description (et l'indication de la provenance).
 
-**Répertoire à laisser vide sur gitlab** mais qui localement devrait contenir les fichiers CSV de départ (récupérés sur https://silico.biotoul.fr/enseignement/m1/datamining/projet/data/):
-
-- Assembly.tsv.gz
-- Chromosome.tsv.gz
-- Conserved_Domain.tsv.gz
-- Functional_Domain.tsv.gz
-- Gene.tsv.gz
-- Orthology.tsv.gz
-- Protein.tsv.gz
-- Strain.tsv.gz
-- Taxonomy.tsv.gz
-
-**Remarque :** Si vous travaillez sur un autre projet utilisant des données autres que celles fournies sur les ABC, il faudra soit les mettre ici, soit indiquer une procédure (qui fonctionne) pour les récupérer (et pouvoir faire les tests)
+Si les données sont trop volumineuses, alors il faudra indiquer dans ce README.md la procédure pour les récupérer.
