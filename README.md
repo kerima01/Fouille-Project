@@ -19,7 +19,7 @@ Il y a donc quelques répertoires qu'il vous faudra utiliser et compléter (et n
 
 - **Rendu 1. 20 mars:** Groupes de projet (2 personnes par groupe)
   - **envoyer un mail à RB avec le lien vers votre projet** GitLab. Attention à ce que votre projet soit accessible par lui (ajouter l'utilisateur **@rbarriot** aux membres du projet avec le rôle *developper* ou *maintainer* s'il n'est pas public).
-- **Phase A. Elaboration du projet : recherche d'un jeu de données et définition des objectifs**
+- **Phase A. Elaboration du projet : recherche d'un jeu de données dans un domaine relatif à la biologie (au sens très large : santé-médecine-agro-environnement-écologie) et définition des objectifs**
 - **Rendu 2. 4 avril:** Jeu de données initial et objectifs détaillés du projet
   - Mise à jour de la page d'accueil de votre gitlab avec la description du jeu de données qui va être utilisé, le lien vers les données, et une section **Objectifs** (sur la page d'accueil) décrivant succinctement l'analyse qui va être effectuée
 - **Phase B. Exploration et analyse des données, sélection des variables pertinentes et constitution de la matrice *individus-variables* pour la fouille**
