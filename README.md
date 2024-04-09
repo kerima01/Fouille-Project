@@ -11,7 +11,7 @@ Il y a donc quelques répertoires qu'il vous faudra utiliser et compléter (et n
 
 - `rapport`: ce répertoire contiendra le rapport qui sera au format Markdown. Ainsi, il sera possible de le visualiser et de l'éditer directement sur GitLab ou bien localement tout en permettant un suivi des modifications et un travail collaboratif.
 
-- `data`: ce répertoire contient en théorie les fichiers CSV fournis mais **il ne faut pas** concrètement les mettre sur GitLab (ni autre site accessible) puisque tout le monde les a déjà. En paramétrant git, cela permet de les avoir en local, avec les mêmes chemins et les mêmes noms, sans avoir à les mettre sur GitLab, et ainsi, les scripts de préparation des données devraient fonctionner plus facilement.
+- `data`: ce répertoire contient les données de départ (brutes) permettant de réaliser le projet. La provenance des données doit être indiquée. Pour le projet ABC, **il ne faut pas** concrètement les mettre sur GitLab (ni autre site accessible) car je les ai. En paramétrant git, cela permet de les avoir en local, avec les mêmes chemins et les mêmes noms, sans avoir à les mettre sur GitLab, et ainsi, les scripts de préparation des données devraient fonctionner plus facilement.
 
 
 # Calendrier 
