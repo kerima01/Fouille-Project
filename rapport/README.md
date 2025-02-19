@@ -68,9 +68,9 @@ Si c'était à refaire... ou bien, quelles pourraient être les pistes d'investi
 
 # Gestion du projet
 
-  * Comment s’est organisé le groupe. 
-  * Comment se sont déroulées les discussions, les prises de décisions. 
-  * Comment se sont réparties les tâches. Qui a fait quoi. 
-  * Quels ont été les rôles et les contributions de chacun·e. 
-  * Diagramme de Gantt avec le calendrier et les tâches.
-
+* Comment s’est organisé le groupe.
+* Comment se sont déroulées les discussions, les prises de décisions.
+* Comment se sont réparties les tâches. Qui a fait quoi.
+* Quels ont été les rôles et les contributions de chacun·e.
+* Diagramme de Gantt avec le calendrier et les tâches.
+* Section spéciale méthodologie de travail : Dans cette section, **vous devrez mentionner l'aide extérieure** que vous avez pu recevoir (d'autres étudiants ou connaissances) ou si vous avez travailler à plusieurs sur certaines parties du projet. **Vous devrez aussi mentionner l'utilisation ou la non utilisation de chatGPT** (ou autres IA) pour le code et/ou la rédaction.
