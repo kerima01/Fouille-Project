@@ -18,11 +18,21 @@ Il y a donc quelques répertoires qu'il vous faudra utiliser et compléter (et *
 - **Rendu 1. 21 mars:** Groupes de projet (2 personnes par groupe)
   - **envoyer un mail à RB avec le lien vers votre projet** GitLab. Attention à ce que votre projet soit accessible par lui (ajouter l'utilisateur **@rbarriot** aux membres du projet avec le rôle *developper* ou *maintainer* s'il n'est pas public).
 - **Phase A. Elaboration du projet : recherche d'un jeu de données dans un domaine relatif à la biologie (au sens très large : santé-médecine-agro-environnement-écologie) et définition des objectifs**
+  - Pour le jeu de données, il faudrait un volume minimum pour que cela soit intéressant : de l'ordre de **quelques centaines d'individus et une dizaine de variables**, au moins. Vous pouvez/devriez me demander si le jeu de données envisagé convient (merci de me donner le lien, le type de données, et le nombre d'invididus et de variables dans le mail).
 - **Rendu 2. 4 avril:** Jeu de données initial et objectifs détaillés du projet
+  - Objectifs détaillés ;
+    - il s'agit de définir si c'est de la classification automatique ou du clustering (ou des règles d'association), exemples :
+      - classification automatique : comparaison des paramètres pour une méthode et de leurs performance
+      - classification automatique : comparaison de méthodes (arbre de décision, forêt aléatoire, ...) et de leurs performances
+      - clustering : comparaison des résultas obtenus (clusters) par rapport à des classes connues
+      - clustering : comparaison des résultas obtenus (clusters) avec différentes méthodes par rapport à des classes connues
+      - clustering : analyse détaillée du contenu des clusters obtenus, certains pouvant bien définir des classes, d'autres moins bien
+      - ...
+    - quelles sont les variables utilisées, les transformations qu'il faudra effectuer, et la classe prédite (pour de la classification)
   - Mise à jour de la page d'accueil de votre gitlab avec la description du jeu de données qui va être utilisé, le lien vers les données, et une section **Objectifs** (sur la page d'accueil) décrivant succinctement l'analyse qui va être effectuée
 - **Phase B. Exploration et analyse des données, sélection des variables pertinentes et constitution de la matrice *individus-variables* pour la fouille**
 - **Rendu 3. 18 avril:** Matrice de données *individus-variables* à fournir avec les scripts et la documentation utilisateur pour l'obtenir 
-  - Mise à jour du projet GitLab avec les données de départ (sauf si elles sont trop volumineuses) ainsi que la matrice dans le répertoire data et les scripts pour obtenir la matrice à partir des données dans le répertoire [data.preparation](./data.preparation)). Il faudra 
+  - Mise à jour du projet GitLab avec les données de départ (sauf si elles sont trop volumineuses) ainsi que la matrice dans le répertoire data et les scripts pour obtenir la matrice à partir des données dans le répertoire [data.preparation](./data.preparation)).
 - **Phase C. Mise en oeuvre de la fouille et obtention des résultats et de leur évaluation sur la matrice *individus-variables***
 - **Rendu 4. 25 avril:** Mise en forme et remise
   - Mise à jour du projet GitLab 
