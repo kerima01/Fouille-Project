@@ -76,3 +76,9 @@ Les facteurs de risque des maladies cardiovasculaires comprennent des éléments
 Les modèles d’apprentissage automatique (machine learning) sont de plus en plus utilisés dans le domaine médical pour prédire les risques associés à diverses pathologies, dont les maladies cardiovasculaires (Byrsell et Al., 2021 & Rafi S., et Al., 2022). L'idée est de pouvoir analyser rapidement et précisément de grandes quantités de données médicales et biologiques, en vue de déterminer quels facteurs influencent le plus la présence d'une maladie cardiaque.  
 
 L’utilisation de ces modèles peut apporter une aide précieuse pour le diagnostic précoce, le suivi des patients et l'optimisation des traitements. Dans le cadre de ce projet, nous allons tester différents algorithmes de classification automatique afin de prédire la présence ou l'absence de maladies cardiaques à partir de caractéristiques cliniques et biologiques.
+
+## **Références :**
+1- World Health Organization. (2021). Cardiovascular diseases (CVDs). Lien vers le rapport https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)  
+2- Benjamin, E. J., et al. (2019). Heart Disease and Stroke Statistics—2019 Update: A Report From the American Heart Association.  
+3- Rafi S., Gangloff C., Paulhet E., Grimault O., Soulat L., Bouzillé G., Cuggia M. (2022). Out-of-Hospital Cardiac Arrest Detection by Machine Learning Based on the Phonetic Characteristics of the Caller's Voice.  
+4- Byrsell, F., Claesson, A., Ringh, M., Svensson, L., Jonsson, M., Nordberg, P., Forsberg, S., Hollenberg, J., & Nord, A. (2021). Machine learning can support dispatchers to better and faster recognize out-of-hospital cardiac arrest during emergency calls: A retrospective study.
