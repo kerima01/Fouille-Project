@@ -1,4 +1,4 @@
-# **2- Descriptions des variables**  
+# **1- Descriptions des variables**  
 
 **Âge :** âge du patient [années]  
 **Sexe :** sexe du patient [M : Homme, F : Femme]  
