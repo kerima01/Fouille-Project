@@ -1,3 +1,13 @@
-Ce répertoire devrait contenir les fichiers de données de départ accompagnés de leur description (et l'indication de la provenance).
+1- Contexte
+Les maladies cardiovasculaires (MCV) représentent la première cause de mortalité dans le monde, avec environ 17,9 millions de décès par an, soit environ 31% de tous les décès mondiaux (World Health Organization, 2021) . Parmi ces décès, la grande majorité est due à des crises cardiaques et des accidents vasculaires cérébraux (AVC). Il est donc crucial d’identifier et de traiter les patients à risque avant l’apparition de ces événements graves.
+De plus, un tiers des décès dus aux MCV survient chez des personnes de moins de 70 ans, soulignant l'importance de la détection précoce et de la prévention dans les populations jeunes (World Health Organization, 2021).
+Les facteurs de risque des maladies cardiovasculaires comprennent des éléments comme l'hypertension, l'hyperlipidémie, le diabète ou l'existence de précédentes maladies cardiaques. La combinaison de ces facteurs peut précipiter l'apparition de maladies cardiaques graves si elle n'est pas identifiée et gérée à temps.
 
-Si les données sont trop volumineuses, alors il faudra indiquer dans ce README.md la procédure pour les récupérer.
+Les modèles d’apprentissage automatique (machine learning) sont de plus en plus utilisés dans le domaine médical pour prédire les risques associés à diverses pathologies, dont les maladies cardiovasculaires (Byrsell et Al., 2021 & Rafi S., et Al., 2022). L'idée est de pouvoir analyser rapidement et précisément de grandes quantités de données médicales et biologiques, en vue de déterminer quels facteurs influencent le plus la présence d'une maladie cardiaque.
+L’utilisation de ces modèles peut apporter une aide précieuse pour le diagnostic précoce, le suivi des patients et l'optimisation des traitements. Dans le cadre de ce projet, nous allons tester différents algorithmes de classification automatique afin de prédire la présence ou l'absence de maladies cardiaques à partir de caractéristiques cliniques et biologiques.
+
+Références :
+World Health Organization. (2021). Cardiovascular diseases (CVDs). Lien vers le rapport https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)
+Benjamin, E. J., et al. (2019). Heart Disease and Stroke Statistics—2019 Update: A Report From the American Heart Association.
+Rafi S., Gangloff C., Paulhet E., Grimault O., Soulat L., Bouzillé G., Cuggia M. (2022). Out-of-Hospital Cardiac Arrest Detection by Machine Learning Based on the Phonetic Characteristics of the Caller's Voice.
+Byrsell, F., Claesson, A., Ringh, M., Svensson, L., Jonsson, M., Nordberg, P., Forsberg, S., Hollenberg, J., & Nord, A. (2021). Machine learning can support dispatchers to better and faster recognize out-of-hospital cardiac arrest during emergency calls: A retrospective study.
