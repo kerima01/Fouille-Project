@@ -8,7 +8,6 @@ Les modèles d’apprentissage automatique (machine learning) sont de plus en pl
 L’utilisation de ces modèles peut apporter une aide précieuse pour le diagnostic précoce, le suivi des patients et l'optimisation des traitements. Dans le cadre de ce projet, nous allons tester différents algorithmes de classification automatique afin de prédire la présence ou l'absence de maladies cardiaques à partir de caractéristiques cliniques et biologiques.
 
 # **2- Descriptions des variables**  
-Informations sur les attributs :
 
 **Âge :** âge du patient [années]  
 **Sexe :** sexe du patient [M : Homme, F : Femme]  
