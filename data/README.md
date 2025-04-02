@@ -1,4 +1,4 @@
-**<1- Contexte style="font-size:20px;">Texte en gras et de grande taille</1- Contexte>**
+**<p style="font-size:20px;">Texte en gras et de grande taille</p>**
 Les maladies cardiovasculaires (MCV) représentent la première cause de mortalité dans le monde, avec environ 17,9 millions de décès par an, soit environ 31% de tous les décès mondiaux (World Health Organization, 2021) . Parmi ces décès, la grande majorité est due à des crises cardiaques et des accidents vasculaires cérébraux (AVC). Il est donc crucial d’identifier et de traiter les patients à risque avant l’apparition de ces événements graves.
 De plus, un tiers des décès dus aux MCV survient chez des personnes de moins de 70 ans, soulignant l'importance de la détection précoce et de la prévention dans les populations jeunes (World Health Organization, 2021).
 Les facteurs de risque des maladies cardiovasculaires comprennent des éléments comme l'hypertension, l'hyperlipidémie, le diabète ou l'existence de précédentes maladies cardiaques. La combinaison de ces facteurs peut précipiter l'apparition de maladies cardiaques graves si elle n'est pas identifiée et gérée à temps.
