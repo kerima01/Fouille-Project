@@ -77,7 +77,25 @@ Les modèles d’apprentissage automatique (machine learning) sont de plus en pl
 
 L’utilisation de ces modèles peut apporter une aide précieuse pour le diagnostic précoce, le suivi des patients et l'optimisation des traitements. Dans le cadre de ce projet, nous allons tester différents algorithmes de classification automatique afin de prédire la présence ou l'absence de maladies cardiaques à partir de caractéristiques cliniques et biologiques.
 
-## **Références :**
+# **2- Objectifs**    
+## **a. Préparation du jeu de données :**    
+- Prétraitement: Nettoyage des données (gestion des valeurs manquantes, suppression de doublons). Sélection des variables (éliminer les variables non pertinentes ou redondantes) pour améliorer la performance des modèles.  
+- Normalisation: Standardiser les variables numériques pour éviter les biais liés aux différences d’échelle.  
+- Visualisation : Création d’une matrice individus-variables pour mieux comprendre la structure des données. Explorer la distribution des données et les relations entre les variables à l’aide de graphiques (histogrammes, heatmaps, boxplots).  
+
+## **b. Mise en place des modèles de classification :**  
+- Application de plusieurs algorithmes : Tester différentes approches (arbres de décision, forêts aléatoires, k-plus proches voisins, naïve bayes, réseaux de neurones).  
+- Comparaison des modèles : Analyser les forces et faiblesses de chaque méthode en fonction de leurs performances.  
+
+## **c. Évaluation et sélection du modèle optimal :**  
+- Mesure des performances : Utiliser des métriques comme l’accuracy, le rappel, le score F1 et l’AUC-ROC pour comparer les modèles.  
+- Optimisation des paramètres : Ajuster les paramètres des modèles pour améliorer la prédiction.  
+
+## **d.  Interprétation et analyse des résultats :**  
+-Identification des facteurs de risque : Déterminer les variables les plus influentes dans la prédiction des maladies cardiovasculaires.  
+-Discussion et recommandations : Interpréter les résultats pour proposer des pistes d’amélioration en prévention et en détection précoce.    
+
+## **Références :**  
 1- World Health Organization. (2021). Cardiovascular diseases (CVDs). Lien vers le rapport https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)  
 2- Benjamin, E. J., et al. (2019). Heart Disease and Stroke Statistics—2019 Update: A Report From the American Heart Association.  
 3- Rafi S., Gangloff C., Paulhet E., Grimault O., Soulat L., Bouzillé G., Cuggia M. (2022). Out-of-Hospital Cardiac Arrest Detection by Machine Learning Based on the Phonetic Characteristics of the Caller's Voice.  
