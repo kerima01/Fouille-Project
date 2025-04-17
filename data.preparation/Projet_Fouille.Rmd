@@ -1,0 +1,216 @@
+---
+title: "Projet_Fouille"
+output: html_document
+date: "2025-04-02"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+install.packages("corrplot")
+library(tidyverse)
+library(dplyr)
+library(corrplot)
+library(magrittr) # syntaxe, notamment affectation %<>%
+library(GGally)   # plot pairs better than default plot
+library(plotly)   # plots interactifs
+library(factoextra)
+library(ggplot2)
+```
+
+```{r}
+read_csv("data/heart.csv")
+```
+
+```{r}
+tb <- read_csv("data/heart.csv") %>%
+  mutate_if(is.character, factor)
+head(tb)
+```
+
+```{r}
+tb$HeartDisease
+c('Normale','Malade')[ tb$HeartDisease] %>% # tb$HeartDisease donne l'indice à aller chercher dans le vecteur ['Normale','Malade']
+  as.factor
+```
+Modification du tibble : fonction `mutate`
+```{r}
+tb=  tb %>% 
+    mutate(HeartDisease=as.factor( c('Normale','Malade'))[ HeartDisease ] ) 
+
+tb$HeartDisease=as.factor(tb$HeartDisease)
+```
+Ceci permet de remplacer les factors 0,1 par normale et malade
+
+```{r}
+sum(is.na(data))
+```
+# Les valeurs numeriques
+```{r}
+numerical_columns <- c("Age", "RestingBP", "Cholesterol", "MaxHR", "Oldpeak", "HeartDisease")
+tb_num= tb[numerical_columns]
+tb_num
+```
+
+En *x* les classes, et pour chaque classe, les effectifs, sous forme de `barplot` :
+
+```{r}
+tb %>%
+  ggplot(aes(x=HeartDisease, fill=HeartDisease)) + # aes pour aesthetic
+  geom_bar(stat = 'count') + # https://ggplot2.tidyverse.org/reference/geom_bar.html
+  geom_text(stat='count', aes(label=..count..), vjust=-0.5) # pour afficher les effectifs
+```
+
+
+# Transformation : `pivot_longer` de `tidyr` (plusieurs variables → (variable name, variable value) )
+
+Manip pour avoir des tuples (classe, variable, value)
+```{r}
+tbg = tb_num %>% 
+  rowid_to_column() %>% # ajout d'un identifiant de ligne 
+  pivot_longer(Age:Oldpeak, names_to='variable', values_to='value')
+tbg
+```
+
+`rowid` sera nécessaire si on veut revenir au format de départ sinon impossible de savoir quelle mesures (d'alcool, de ash, ...) il faut rassembler pour reconstruire le tableau de départ.
+
+```{r}
+tbg %>%
+  ggplot(aes(HeartDisease, value, color=HeartDisease)) +
+  geom_boxplot() +
+  facet_wrap(~ variable)
+```
+**Conclusion :** On voit bien que Age et Oldpeak sont écrasé par les autres Variables quantitatives. Il est donc pertinent de normaliser
+
+Plot interactif avec `plotly` (on sauvegarde le résultat de `ggplot` et on le passe à `ggplotly`)
+```{r}
+p = tbg %>%
+  ggplot(aes(HeartDisease, value, color=HeartDisease)) +
+  geom_boxplot() +
+  facet_wrap(~ variable)
+ggplotly(p)
+```
+
+
+On enregistre les paramètres de normalisation (z-score) de chacune des variables :
+```{r}
+znorm = tbg %>% 
+  group_by(variable) %>%
+  summarize(mean=mean(value), sd=sd(value), min = min(value), max=max(value), median=median(value))
+znorm
+```
+
+jointure et ajout des *z-scores*
+```{r}
+tbg %<>% 
+  inner_join(znorm, by='variable') %>% 
+  mutate(value.z = (value-mean)/sd)
+tbg
+```
+
+Vérification de la normalisation (moyenne à 0 et écart-type à 1)
+```{r}
+tbg %>% 
+  group_by(variable) %>% 
+  summarize(moyenne=round(mean(value.z), 4), `écart-type`=sd(value.z)) # nom de colonne avec un é pour illustrer mais à éviter en général
+```
+# Visualisation des distributions avec `ggplot` + `facet`
+
+Visualisation
+```{r}
+tbg %>%
+  ggplot(aes(HeartDisease, value.z, color=HeartDisease)) +
+  geom_violin() +
+  geom_jitter(alpha=.3, width=.15, size=0.5) +
+  facet_wrap(~ variable)
+```
+**Conclusion :** Maintenant les variables quantitatives sont comparables.
+
+```{r}
+# Normalisation des variables numériques avec scale
+tb_numpur=tb[numerical_columns] %>% 
+  select(-HeartDisease)
+tb_numpur <- scale(tb_numpur)
+colSums(tb_numpur)
+```
+
+
+
+```{r}
+# Calcul de la matrice de corrélation
+correlation_matrix <- cor(tb_numpur)
+
+# Affichage de la matrice de corrélation
+print(correlation_matrix)
+
+# Visualisation de la corrélation
+corrplot(correlation_matrix, method = "circle")
+
+```
+**Conclusion :** Si deux variables sont fortement corrélées (|corr| > 0.8), l’une peut être supprimée car elles apportent la même information. Mais ici, toutes les corrélations sont faibles, donc aucune variable n’est totalement redondante et donc on garde nos toutes belles variables hhh.
+
+
+
+```{r}
+# Tester l'indépendance avec la variable cible (Cardiopathie) pour chaque variable catégorielle
+tb$FastingBS= as.factor(tb$FastingBS)
+categorical_columns <- c("Sex", "ChestPainType", "RestingECG", "ExerciseAngina", "ST_Slope", "FastingBS")
+for (col in categorical_columns) {
+  #cat("\nTest du chi-carré pour", col, ":\n")
+  test_result <- chisq.test(table(tb[[col]], tb$HeartDisease))
+  print(test_result)
+}
+
+# La méthode de prof
+tb_cat= tb[categorical_columns]
+x= tb[categorical_columns]
+y=tb$HeartDisease
+sapply(colnames(x), function(a)chisq.test(x=x[,a], y=y)$p.value)
+```
+**Conclusion : ** p-value < 0.05 : Il y a une relation significative entre toutes les variables catégorielles et HeartDisease. Toutes les variables catégorielles sont informatives et doivent être conservées.
+
+
+# Liaison attribut-classe
+
+## Table de contingence
+```{r}
+table(tb$HeartDisease, tb_cat$ChestPainType)
+```
+
+## Visualisation graphique
+```{r}
+ plot(table(tb_cat$ChestPainType, tb$HeartDisease), main='ChestPainType')
+```
+
+
+```{r}
+tb %>%
+  ggbivariate(outcome="HeartDisease", explanatory= colnames(tb[categorical_columns]))
+```
+
+
+
+```{r}
+# Affichage
+foo=sapply(colnames(x), 
+           function(a)
+             plot(
+               table(unlist(x[,a]), y),
+               main=a
+             
+             )
+)
+```
+
+# Conclusion générale : Toutes les variables sont pertinentes pour la suite de l'analyse.
+
+```{r}
+library(readr)
+colonne_numerique <- c("Age", "RestingBP", "Cholesterol", "MaxHR", "Oldpeak")
+tb_final=tb
+tb_final[colonne_numerique]= scale(tb_final[colonne_numerique])
+tb_final
+```
+
