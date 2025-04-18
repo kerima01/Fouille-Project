@@ -18,76 +18,97 @@ Le plan proposé est :
 **Remarque :** à la suite de ce dépôt, vous avez la possibilité d'apporter des modifications à votre matrice (et donc aux scripts pour l'obtenir) si elle ne s'avérait pas parfaitement adaptée ou incomplète par rapport à l'analyse que vous aviez prévue.
 
 
-# Génération de la matrice individus-variables pour la prédiction des maladies cardiovasculaires
 
-## Objectif
 
-L’objectif de cette première phase est de construire une matrice individus-variables à partir d’un fichier de données brutes, afin de préparer les données pour des tâches de classification et/ou de clustering dans le cadre d’un projet de fouille de données.
+# Projet de Fouille de Données : Prédiction des Maladies Cardiovasculaires
 
----
+## Objectif de ce script
 
-## Fichier(s) de départ
-
-- **Chemin :** `data/heart.csv`  
-- **Contenu :** Données médicales anonymisées issues d’examens cliniques, avec notamment :
-  - Des variables numériques : âge, pression artérielle, taux de cholestérol, etc.
-  - Des variables catégorielles : type de douleur, électrocardiogramme, etc.
-  - Une variable cible binaire : présence ou non d’une maladie cardiovasculaire (`HeartDisease`)
+Ce script R (voir `Projet_Fouille.Rmd`) réalise la préparation complète du jeu de données en vue d’une modélisation pour prédire la présence de maladies cardiovasculaires.  
+Il s’agit de la première étape du projet, centrée sur le nettoyage, la transformation, l’analyse exploratoire et la normalisation des données.
 
 ---
 
-## Objectif : la matrice finale
+## 1. Chargement et préparation des données
 
-La **matrice individus-variables** obtenue à l’issue de ce script contient :
-
-- **Lignes :** chaque individu (patient) de l’échantillon
-- **Colonnes :**
-  - Variables **numériques standardisées** (z-score) : pour éliminer les différences d’échelle
-  - Variables **catégorielles codées en facteurs**
-  - Variable cible (`HeartDisease`) recodée en `"Normale"` ou `"Malade"`
-
-Cette matrice est ensuite prête à être utilisée comme **entrée pour les algorithmes de classification ou de clustering**, où chaque ligne représente un individu décrit par ses caractéristiques cliniques.
+- Importation du fichier CSV (`heart.csv`) contenant les observations cliniques.
+- Conversion automatique des colonnes de type caractère en facteurs pour faciliter l’analyse.
+- Transformation de la variable cible `HeartDisease` : elle est recodée en deux classes `"Normale"` et `"Malade"` (au lieu de 0/1) pour une lecture plus intuitive.
 
 ---
 
-## Étapes de génération
+## 2. Exploration des variables
 
-1. **Lancement du script principal :**
-   - Fichier : `Projet_Fouille.Rmd` (R Markdown)
-   - Ce fichier est exécutable directement dans RStudio (bouton "Knit") ou ligne par ligne dans un environnement R.
+### Variables numériques
 
-2. **Contenu du script :**
-   - Chargement et conversion des types de données (`read_csv`, `mutate`)
-   - Nettoyage : traitement des doublons, gestion des types, renommage de la variable cible
-   - Sélection des variables pertinentes
-   - Visualisation exploratoire (boxplots, violons, heatmaps)
-   - Normalisation des variables numériques à l’aide du z-score (`scale`)
-   - Analyse de corrélation pour éviter les redondances
-   - Tests du chi² pour valider l’information portée par les variables catégorielles
-   - Construction finale de la matrice avec toutes les variables conservées
+- Sélection des variables numériques pertinentes :
+  - `Age`, `RestingBP`, `Cholesterol`, `MaxHR`, `Oldpeak`
+- Visualisation de leur distribution selon la classe (`HeartDisease`) :
+  - Boxplots par variable pour repérer les différences entre groupes
+  - Plots interactifs via `plotly`
+  - Observation : certaines variables ont des échelles différentes, d’où la nécessité de les normaliser.
 
-3. **Résultat :**
-   - Une table nommée `tb_final` dans le script R, qui constitue la **matrice individus-variables propre et prête à l’usage**.
+### Distribution des classes
+
+- Diagramme en barres du nombre d’individus Normale vs Malade
+- Ajout des effectifs directement sur les barres
 
 ---
 
-## Utilisation future
+## 3. Normalisation des variables numériques
 
-Cette matrice sera utilisée pour :
+- Calcul de la moyenne et de l’écart-type pour chaque variable
+- Création d’une nouvelle version des données avec des z-scores (valeurs centrées réduites)
+- Vérification : chaque variable a bien une moyenne ≈ 0 et un écart-type ≈ 1
 
-- **Classification** : appliquer plusieurs modèles (arbres, forêts, KNN, Naïve Bayes, etc.)
-- **Clustering (optionnel)** : identifier des groupes d’individus similaires
-- **Analyse des variables** : identification des facteurs les plus influents dans la détection de maladies cardiovasculaires
+Objectif : rendre les variables numériques comparables entre elles malgré des unités différentes.
 
-Les **lignes** représentent des individus, les **colonnes** représentent les descripteurs cliniques (quantitatifs ou qualitatifs) qui seront utilisés comme **entrées dans les modèles de prédiction**.
+- Visualisation après normalisation :
+  - Graphiques en violon et nuages de points (jitter) pour montrer la distribution par classe
 
 ---
 
-## Auteurs
+## 4. Analyse de corrélation
 
-Issa KERIMA-KHALIL  
-Hawa-Mamadou BALDE  
+- Calcul de la matrice de corrélation entre les variables numériques normalisées
+- Visualisation avec `corrplot`
+- Analyse :
+  - Aucune paire de variables n’a une corrélation forte (|corr| > 0.8)
+  - Conclusion : on conserve toutes les variables numériques
 
-Année universitaire 2024–2025 — Cours de Fouille de Données
+---
+
+## 5. Analyse des variables catégorielles
+
+- Variables examinées : `Sex`, `ChestPainType`, `RestingECG`, `ExerciseAngina`, `ST_Slope`, `FastingBS`
+- Application de tests du chi² pour évaluer l’indépendance avec la variable cible
+- Résultats :
+  - Toutes les variables présentent une relation statistiquement significative avec la présence de maladie
+  - Visualisations : graphiques de contingence, `ggbivariate`, barplots croisés
+
+---
+
+## Conclusion de la préparation
+
+- Toutes les variables (numériques et catégorielles) sont informatives et conservées pour la suite du projet.
+- Les données sont maintenant nettoyées, normalisées et prêtes à être utilisées pour entraîner des modèles de classification.
+
+---
+
+## Fichiers concernés
+
+- `Projet_Fouille.Rmd` : script complet reproductible (R Markdown)
+- `data/heart.csv` : jeu de données d’origine
+- `README.md` : ce fichier de documentation
+
+---
+
+## Auteurs / Contexte
+
+Projet réalisé dans le cadre d’un cours de fouille de données (année universitaire 2024–2025), avec pour objectif de détecter précocement les risques de maladies cardiovasculaires à partir de données médicales.
+
+**Auteurs :**  
+- Issa KERIMA-KHALIL  
+- Hawa-Mamadou BALDE
 
 
