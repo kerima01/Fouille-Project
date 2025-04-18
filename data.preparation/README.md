@@ -29,7 +29,7 @@ Il s’agit de la première étape du projet, centrée sur le nettoyage, la tran
 
 ---
 
-## Fichier(s) de départ
+## Fichier de départ
 
 - **Chemin :** `data/heart.csv`  
 - **Contenu :** Données médicales anonymisées issues d’examens cliniques, avec notamment :
