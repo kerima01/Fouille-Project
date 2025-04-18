@@ -88,7 +88,7 @@ L’utilisation de ces modèles peut apporter une aide précieuse pour le diagno
 - **Comparaison des modèles :** Analyser les forces et faiblesses de chaque méthode en fonction de leurs performances.  
 
 ## **c. Évaluation et sélection du modèle optimal :**  
-- **Mesure des performances :** Utiliser des métriques comme l’accuracy, le rappel, le score F1 et l’AUC-ROC pour comparer les modèles.  
+- **Mesure des performances :** Utiliser des métriques pour comparer les modèles.  
 - **Optimisation des paramètres :** Ajuster les paramètres des modèles pour améliorer la prédiction.  
 
 ## **d.  Interprétation et analyse des résultats :**  
