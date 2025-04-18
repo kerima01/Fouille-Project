@@ -22,7 +22,7 @@ Le plan proposé est :
 
 ## Objectif
 
-L’objectif de cette première phase est de construire une matrice individus-variables à partir du fichier de données brutes et réaliser la préparation complète du jeu de données en vue d’une modélisation pour prédire la présence de maladies cardiovasculaires.  
+L’objectif de cette phase est de construire une matrice individus-variables à partir du fichier de données brutes et réaliser la préparation complète du jeu de données en vue d’une modélisation pour prédire la présence de maladies cardiovasculaires.  
 Il s’agit de la première étape du projet, centrée sur le nettoyage, la transformation, l’analyse exploratoire et la normalisation des données.
 
 ---
