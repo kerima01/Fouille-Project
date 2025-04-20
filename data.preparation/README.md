@@ -88,7 +88,7 @@ Les **lignes** représentent des individus, les **colonnes** représentent les d
 ## Auteurs
 
 Issa KERIMA-KHALIL  
-Hawa-Mamadou BALDE  
+Mamadou Hawa BALDE  
 
 Année universitaire 2024–2025 — Cours de Fouille de Données
 
