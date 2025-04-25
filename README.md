@@ -43,8 +43,8 @@ lien vers le rapport:  https://github.com/kerima01/Fouille-Project/blob/master/r
 
 
 ## **Auteurs** 
-Hawa BALDE  
-Issa KERIMA-KHALIL
+**Hawa BALDE**  
+**Issa KERIMA-KHALIL**
 
 Master Bioinformatique et Biologie des Systèmes  
 Université Toulouse Paul Sabatier 2024-2025
