@@ -81,10 +81,10 @@ L’utilisation de ces modèles peut apporter une aide précieuse pour le diagno
 ## **a. Préparation du jeu de données :**    
 - **Prétraitement :** Nettoyage des données (gestion des valeurs manquantes, suppression de doublons). Sélection des variables (éliminer les variables non pertinentes ou redondantes) pour améliorer la performance des modèles.  
 - **Normalisation :** Standardiser les variables numériques pour éviter les biais liés aux différences d’échelle.  
-- **Visualisation :** Création d’une matrice individus-variables pour mieux comprendre la structure des données. Explorer la distribution des données et les relations entre les variables à l’aide de graphiques (histogrammes, heatmaps, boxplots).  
+- **Visualisation :** Création d’une matrice individus-variables pour mieux comprendre la structure des données. Explorer la distribution des données et les relations entre les variables à l’aide de graphiques (boxplots, Histogramme).  
 
 ## **b. Mise en place des modèles de classification :**  
-- **Application de plusieurs algorithmes :** Tester différentes approches (arbres de décision, forêts aléatoires, k-plus proches voisins, naïve bayes, réseaux de neurones).  
+- **Application de plusieurs algorithmes :** Tester différentes approches (arbres de décision, forêts aléatoires, k-plus proches voisins, naïve bayes).  
 - **Comparaison des modèles :** Analyser les forces et faiblesses de chaque méthode en fonction de leurs performances.  
 
 ## **c. Évaluation et sélection du modèle optimal :**  
