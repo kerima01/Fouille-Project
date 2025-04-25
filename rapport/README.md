@@ -186,6 +186,13 @@ Dans le cadre du classifieur Naïve Bayes, nous avons comparé les performances 
 
 Ainsi, l’ajout du lissage de Laplace a permis de renforcer la sensibilité du modèle, ce qui peut être particulièrement pertinent dans un contexte médical où la priorité est de ne pas manquer un malade, même au prix d’une légère baisse de spécificité. Le modèle sans lissage reste toutefois plus équilibré, avec une précision symétrique entre les classes. Le choix entre les deux variantes dépendra donc des objectifs cliniques visés : maximiser la détection ou maintenir un équilibre décisionnel.
 
+
+| Lissage   | Précision | Sensibilité | Spécificité | Balanced Accuracy | Kappa  |
+|------------|-----------|-------------|-------------|-------------------|--------|
+| Laplace=0  | 88,56 %   | 88,95 %     | 88,06 %     | 88,51 %           | 0,7682 |
+| Laplace=1  | 87,54 %   | 90,53 %     | 83,82 %     | 87,18 %           | 0,7468 |
+
+
 **Tableau 6 :  Comparaison des performances selon le critère de lissage (lissage vs non lissage) dans le modèle Naïve bayes**
 
 Pour le modèle Arbre de décision, deux ajustements principaux ont été appliqués : l’utilisation de l’entropie comme critère de division, en lieu et place de l’indice de Gini par défaut, et la limitation de la profondeur de l’arbre à 5 niveaux pour réduire le risque de surapprentissage. Le critère entropie favorise des séparations plus informatives, tandis que la profondeur restreinte permet de mieux généraliser sur des données bruitées.
