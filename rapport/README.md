@@ -97,7 +97,7 @@ Toutes les variables disponibles dans l’ensemble de données ont été conserv
 Nous observons que les variables Age, et Oldpeak sont visuellement écrasées par les autres variables quantitatives en raison de différences d'échelles. Il est donc pertinent de normaliser. 
 Les variables numériques ont donc été normalisées à l’aide du z-score, ce qui consiste à centrer et réduire chaque variable afin d’obtenir une moyenne nulle et un écart-type égal à un. Cette étape est essentielle pour garantir que toutes les variables sont comparables et qu’aucune ne domine les autres en raison de son échelle de mesure.
 
-![Boxplot scaled](Boxtplot_scaled.png)
+![Boxplot scaled](Boxplot_scaled.png)
 **Figure 2: Distribution des variables quantitatives selon la présence ou l’absence de maladie cardiaque ( après normalisation)**
 
 Grâce à la normalisation par z-score, nous observons maintenant que toutes les variables sont désormais exprimées sur une échelle commune. Cela permet une comparaison plus équitable de leurs distributions entre les patients atteints ou non de maladies cardiovasculaires et cette étape est essentielle pour les algorithmes de classification automatique.
