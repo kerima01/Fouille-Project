@@ -96,7 +96,8 @@ Bien que certaines variables classiques comme l'âge ou la pression artérielle 
 En conclusion, cette étude illustre la pertinence de l'apprentissage automatique dans l'aide à la décision médicale. Elle ouvre la voie à une meilleure stratification des risques, tout en soulignant la nécessité d'un dialogue constant entre la data science et le savoir médical pour garantir une application éthique, explicable et efficace de ces outils dans la pratique clinique.  
 
 
-Pour une analyse approfondie de la méthodologie employée, des résultats obtenus et des recommandations formulées, veuillez consulter le fichier README.md situé dans le repertoire Fouille-Project/rapport/README.md. le lien:  https://github.com/kerima01/Fouille-Project/blob/master/rapport/README.md
+Pour une analyse approfondie de la méthodologie employée, des résultats obtenus et des recommandations formulées, veuillez consulter le fichier README.md situé dans le repertoire **Rapport**. 
+le lien qui mène vers le rapport:  https://github.com/kerima01/Fouille-Project/blob/master/rapport/README.md
 
 ## **Références :**  
 1- World Health Organization. (2021). Cardiovascular diseases (CVDs). Lien vers le rapport https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)  
