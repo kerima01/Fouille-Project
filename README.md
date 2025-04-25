@@ -1,3 +1,6 @@
+
+# PRÉDICTION DES MALADIES CARDIOVASCULAIRES PAR APPRENTISSAGE AUTOMATIQUE
+
 # Introduction
 
 Ce projet GitLab va servir de point de départ pour la remise du projet de fouille de données. Il s'agit depuis votre compte GitLab de créer un projet à partir de ce dépôt pour récupérer la structure de base et au fur et à mesure y ajouter les scripts de préparation des données pour obtenir matrice individus-variables qui servira pour la prise en main, et ensuite l'analyse, et enfin le rapport.
@@ -96,7 +99,7 @@ Bien que certaines variables classiques comme l'âge ou la pression artérielle 
 En conclusion, cette étude illustre la pertinence de l'apprentissage automatique dans l'aide à la décision médicale. Elle ouvre la voie à une meilleure stratification des risques, tout en soulignant la nécessité d'un dialogue constant entre la data science et le savoir médical pour garantir une application éthique, explicable et efficace de ces outils dans la pratique clinique.  
 
 
-Pour une analyse approfondie de la méthodologie employée, des résultats obtenus et des recommandations formulées, veuillez consulter le fichier README.md situé dans le repertoire **Rapport**.     
+Pour une analyse approfondie de la méthodologie employée, des résultats obtenus et des recommandations formulées, veuillez consulter le fichier README.md situé dans le repertoire `rapport`.     
 lien vers le rapport:  https://github.com/kerima01/Fouille-Project/blob/master/rapport/README.md
 
 ## **Références :**  
