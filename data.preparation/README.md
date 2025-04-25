@@ -33,8 +33,8 @@ Il s’agit de la première étape du projet, centrée sur le nettoyage, la tran
 
 - **Chemin :** `data/heart.csv`  
 - **Contenu :** Données médicales anonymisées issues d’examens cliniques, avec notamment :
-  - Des variables numériques : âge, pression artérielle, taux de cholestérol, etc.
-  - Des variables catégorielles : type de douleur, électrocardiogramme, etc.
+  - Des variables numériques : Age, RestingBP, Cholesterol, MaxHR, Oldpeak.
+  - Des variables catégorielles : Sex, ChestPainType, RestingECG, ExerciseAngina, ST_Slope, FastingBS.
   - Une variable cible binaire : présence ou non d’une maladie cardiovasculaire (`HeartDisease`)
 
 ---
@@ -88,7 +88,7 @@ Les **lignes** représentent des individus, les **colonnes** représentent les d
 ## Auteurs
 
 Issa KERIMA-KHALIL  
-Mamadou Hawa BALDE  
+Hawa BALDE  
 
 Année universitaire 2024–2025 — Cours de Fouille de Données
 
