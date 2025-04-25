@@ -292,7 +292,7 @@ Notre groupe est composé de deux personnes et nous avons opté pour une organis
     - Interprétation et analyse des résultats : Hawa, Issa
     -Conclusion : Hawa, Issa
 ## 3- Diagramme de Gantt: 
-
+![Diagramme des gantt](Gantt.png)
 
 ## 4- Méthodologie de travail:
 Ce projet a été réalisé principalement en s'appuyant sur :
