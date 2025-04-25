@@ -108,7 +108,9 @@ Enfin, les données ont été consolidées dans une table propre, nommée tb_fin
 
 # III.Mise en place des modèles de classification
 L’objectif principal de cette étape est de construire des modèles prédictifs permettant de déterminer si un individu est atteint ou non d’une maladie cardiovasculaire, à partir de ses caractéristiques cliniques et biologiques. Pour ce faire, nous avons opté pour des techniques d’apprentissage supervisé, qui consistent à entraîner un modèle sur un ensemble de données étiquetées (dont la variable cible est connue), afin qu’il puisse ensuite prédire cette variable sur de nouveaux cas.
+
 Dans le cadre de cette étude, quatre algorithmes de classification ont été implémentés : la Forêt aléatoire (Random Forest), qui repose sur un ensemble d’arbres de décision, le classificateur Naïve Bayes, fondé sur les principes de probabilité bayésienne, l’algorithme des k-plus proches voisins (k-Nearest Neighbors, KNN), une méthode intuitive et non paramétrique, qui classe un individu en fonction des classes majoritaires de ses voisins les plus proches dans l’espace des attributs, et enfin l'Arbre de Décision, une approche hiérarchique qui divise l’espace des caractéristiques en sous-groupes homogènes pour effectuer des prédictions. Ces modèles ont été sélectionnés pour leur complémentarité théorique et leur popularité dans les applications biomédicales : Random Forest pour sa capacité à capturer des interactions complexes entre variables, Naïve Bayes pour sa rapidité d’apprentissage et sa lisibilité, KNN pour son approche fondée uniquement sur la distance, et l'Arbre de Décision pour sa simplicité d'interprétation et son efficacité dans des situations de classification claires.
+
 Afin d’évaluer les performances des modèles dans des conditions proches de la réalité, une séparation du jeu de données a été réalisée. Nous avons appliqué un partitionnement aléatoire stratifié, de manière à répartir les individus dans les deux sous-ensembles (2/3 pour l'entraînement, 1/3 pour le test) tout en maintenant les proportions des classes (malade / non-malade) équilibrées dans chaque groupe.
 
 ## Modèle 1 : Forêt Aléatoire (Random Forest)
@@ -119,5 +121,6 @@ Les valeurs prédictives positives et négatives sont respectivement de 87,01 % 
 
 
 **Tableau 1 : Matrice de confusion du modèle Random Forest avec ntree = 500**
+
 Ce premier modèle constitue une base solide pour la suite de l’étude. Il sera par la suite affiné par des ajustements de paramètres et éventuellement comparé à d’autres approches, mais ses performances initiales confirment son potentiel élevé pour ce type de tâche.
 
