@@ -304,17 +304,10 @@ f- Rédaction du rapport :
 Ce projet a été réalisé principalement en s'appuyant sur :
 Les cours et travaux pratiques effectués en fouille de données, qui ont constitué la base méthodologique pour la préparation des données, l'analyse exploratoire, la mise en œuvre des algorithmes de classification et l'interprétation des résultats. Nous avons notamment repris le script python fourni en TP pour le K plus proches voisins (KNN).
 
-
-Les supports de l'UE Analyse de Données Multivariées (ADM), qui nous ont guidés dans la mise en œuvre du modèle arbres de décision, en adaptant les exemples vus en TP à notre jeu de données.
-
-
-Le logiciel R, utilisé pour l'implémentation des méthodes Naïve Bayes et Random Forest, en s’appuyant sur les packages dédiés et l’aide intégrée de R.
-
-
-Les références bibliographiques citées en annexe, qui nous ont permis de mieux cadrer le contexte biologique ainsi que d'orienter certaines étapes de traitement ou de visualisation.
-
-
-Concernant l'utilisation d'outils d'intelligence artificielle, nous avons eu recours occasionnellement à ChatGPT afin d'obtenir des explications complémentaires sur certaines méthodes abordées en cours (notamment pour clarifier des points liés à Naïve Bayes et KNN)
+- Les supports de l'UE Analyse de Données Multivariées (ADM), qui nous ont guidés dans la mise en œuvre du modèle arbres de décision, en adaptant les exemples vus en TP à notre jeu de données.
+- Le logiciel R, utilisé pour l'implémentation des méthodes Naïve Bayes et Random Forest, en s’appuyant sur les packages dédiés et l’aide intégrée de R.
+- Les références bibliographiques citées en annexe, qui nous ont permis de mieux cadrer le contexte biologique ainsi que d'orienter certaines étapes de traitement ou de visualisation.
+- Concernant l'utilisation d'outils d'intelligence artificielle, nous avons eu recours occasionnellement à ChatGPT afin d'obtenir des explications complémentaires sur certaines méthodes abordées en cours (notamment pour clarifier des points liés à Naïve Bayes et KNN)
 
 
 
