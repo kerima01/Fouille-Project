@@ -227,7 +227,7 @@ f- Rédaction du rapport :
 
 
 ## 3- Diagramme de Gantt: 
-![Diagramme des gantt](Diagramme _de_Gantt.png)
+![Diagramme des gantt](Gantt.png)
 
 ## 4- Méthodologie de travail:
 Ce projet a été réalisé principalement en s'appuyant sur :
