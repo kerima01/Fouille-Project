@@ -42,14 +42,14 @@ Pour une analyse approfondie de la méthodologie employée, des résultats obten
 lien vers le rapport:  https://github.com/kerima01/Fouille-Project/blob/master/rapport/README.md
 
 
-## **Auteurs ** 
+## **Auteurs** 
 Hawa BALDE  
 Issa KERIMA-KHALIL
 
 Master Bioinformatique et Biologie des Systèmes  
 Université Toulouse Paul Sabatier 2024-2025
 
-## **Références **  
+## **Références**  
 1- World Health Organization. (2021). Cardiovascular diseases (CVDs). Lien vers le rapport https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)  
 2- Benjamin, E. J., et al. (2019). Heart Disease and Stroke Statistics—2019 Update: A Report From the American Heart Association.  
 3- Rafi S., Gangloff C., Paulhet E., Grimault O., Soulat L., Bouzillé G., Cuggia M. (2022). Out-of-Hospital Cardiac Arrest Detection by Machine Learning Based on the Phonetic Characteristics of the Caller's Voice.  
