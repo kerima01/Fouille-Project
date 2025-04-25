@@ -280,17 +280,20 @@ Notre groupe est composé de deux personnes et nous avons opté pour une organis
  a- Recherche du jeu de données : Hawa, Issa  
 b- Objectifs détaillés du projet : Hawa  
 c- Description du jeu de données : Issa  
-d- Préparation du jeu de données : Sélection des variables pertinentes et constitution de la matrice individus-variables (script R + Documentation) : Hawa, Issa  
+d- Préparation du jeu de données :  Sélection des variables pertinentes et constitution de la matrice individus-variables (script R + Documentation) : Hawa, Issa  
+
 e- Mise en place des modèles de classification :  
-• Application de Naïve Bayes, Random Forest : Issa  
-• Application de k-Nearest Neighbors (KNN), Arbre de Décision : Hawa  
+   - Application de Naïve Bayes, Random Forest : Issa  
+   - Application de k-Nearest Neighbors (KNN), Arbre de Décision : Hawa  
+
 f- Rédaction du rapport :  
-• Introduction : Issa  
-• Préparation du jeu de données : Hawa  
-• Analyse du modèle Naïve Bayes, Random Forest et évaluation des performances : Issa  
-• Analyse de k-Nearest Neighbors (KNN), Arbre de Décision et évaluation des performances : Hawa  
-• Interprétation et analyse des résultats : Hawa, Issa  
-• Conclusion : Hawa, Issa
+   - Introduction : Issa  
+   - Préparation du jeu de données : Hawa  
+   - Analyse du modèle Naïve Bayes, Random Forest et évaluation des performances : Issa  
+   - Analyse de k-Nearest Neighbors (KNN), Arbre de Décision et évaluation des performances : Hawa  
+   - Interprétation et analyse des résultats : Hawa, Issa  
+   - Conclusion : Hawa, Issa
+
 
 ## 3- Diagramme de Gantt: 
 ![Diagramme des gantt](Gantt.png)
