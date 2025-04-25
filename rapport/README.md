@@ -124,7 +124,7 @@ Le modèle Random Forest a été entraîné à l’aide de la fonction randomFor
 
 Les valeurs prédictives positives et négatives sont respectivement de 87,01 % et 86,05 %, ce qui traduit un bon équilibre dans la fiabilité du modèle sur les deux classes. La balanced accuracy, moyenne de la sensibilité et de la spécificité, est de 86,19 %, confirmant la stabilité du modèle, même dans le cas de classes légèrement déséquilibrées.
 
-![Matrice de confusion Rf](matrice_confusion_rf.png)
+![Matrice de confusion Rf](MC_rf.png)
 **Tableau 1 : Matrice de confusion du modèle Random Forest avec ntree = 500**
 
 Ce premier modèle constitue une base solide pour la suite de l’étude. Il sera par la suite affiné par des ajustements de paramètres et éventuellement comparé à d’autres approches, mais ses performances initiales confirment son potentiel élevé pour ce type de tâche.
