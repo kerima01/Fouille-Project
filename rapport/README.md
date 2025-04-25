@@ -172,7 +172,7 @@ Le modèle Arbre de Décision montre des performances satisfaisantes pour la cla
 ## 1- Mesure comparative des performances
 Les performances ont été évaluées selon plusieurs métriques complémentaires : la précision globale (accuracy), qui reflète la proportion totale de bonnes classifications ; la sensibilité, qui mesure la capacité du modèle à détecter les cas positifs (individus malades) ; l’indice Kappa, qui estime la qualité de la classification en tenant compte de l’accord dû au hasard ; et la balanced accuracy, qui représente la moyenne entre sensibilité et spécificité, particulièrement utile dans le cas de classes déséquilibrées.
 
-![Comparaison des performances des models](tableau_modeles.png)
+![Comparaison des performances des models](tableau_modèle.png)
 **Tableau 5 : Comparaison des performances des modèles selon différentes métriques d’évaluation**
 
 On observe, à travers le tableau comparatif, les performances obtenues par chaque modèle. Random Forest obtient une précision globale de 86,6 %, une sensibilité de 89,53 %, un indice Kappa de 0,7267 et une balanced accuracy de 86,19 %. Le modèle Naïve Bayes se distingue légèrement avec la meilleure précision globale (88,56 %), une sensibilité de 88,95 %, un indice Kappa de 0,7682 et une balanced accuracy de 88,51 %. Le KNN affiche également de bonnes performances avec une précision de 87,02 %, une sensibilité de 87,22 %, un Kappa de 0,7355 et une balanced accuracy de 86,96 %. Enfin, l’Arbre de Décision obtient une précision de 84,97 %, une sensibilité de 77,61 %, un indice Kappa de 0,6778 et une balanced accuracy de 84,15 %.
