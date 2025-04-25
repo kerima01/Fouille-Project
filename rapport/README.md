@@ -313,13 +313,13 @@ Concernant l'utilisation d'outils d'intelligence artificielle, nous avons eu rec
 
 
 # VIII. Références
-1- World Health Organization. (2021). Cardiovascular diseases (CVDs). Récupéré de : https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)
-2- Benjamin, E. J., et al. (2019). Heart Disease and Stroke Statistics—2019 Update: A Report From the American Heart Association.
-3- Rafi S., Gangloff C., Paulhet E., Grimault O., Soulat L., Bouzillé G., Cuggia M. (2022). Out-of-Hospital Cardiac Arrest Detection by Machine Learning Based on the Phonetic Characteristics of the Caller's Voice.
-4- Byrsell, F., Claesson, A., Ringh, M., Svensson, L., Jonsson, M., Nordberg, P., Forsberg, S., Hollenberg, J., & Nord, A. (2021). Machine learning can support dispatchers to better and faster recognize out-of-hospital cardiac arrest during emergency calls: A retrospective study.
-5- European Society of Cardiology (ESC). (2019). 2019 ESC Guidelines on cardiovascular disease prevention in clinical practice.
-6- American Heart Association (AHA). (2021). 2021 Dietary Guidance to Improve Cardiovascular Health: A Scientific Statement From the American Heart Association.
-7- usuf, S., Hawken, S., Ôunpuu, S., et al. (2004). Effect of potentially modifiable risk factors associated with myocardial infarction in 52 countries (the INTERHEART study): case-control study.
+1- World Health Organization. (2021). Cardiovascular diseases (CVDs). Récupéré de : https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)  
+2- Benjamin, E. J., et al. (2019). Heart Disease and Stroke Statistics—2019 Update: A Report From the American Heart Association.  
+3- Rafi S., Gangloff C., Paulhet E., Grimault O., Soulat L., Bouzillé G., Cuggia M. (2022). Out-of-Hospital Cardiac Arrest Detection by Machine Learning Based on the Phonetic Characteristics of the Caller's Voice.  
+4- Byrsell, F., Claesson, A., Ringh, M., Svensson, L., Jonsson, M., Nordberg, P., Forsberg, S., Hollenberg, J., & Nord, A. (2021). Machine learning can support dispatchers to better and faster recognize out-of-hospital cardiac arrest during emergency calls: A retrospective study.  
+5- European Society of Cardiology (ESC). (2019). 2019 ESC Guidelines on cardiovascular disease prevention in clinical practice.  
+6- American Heart Association (AHA). (2021). 2021 Dietary Guidance to Improve Cardiovascular Health: A Scientific Statement From the American Heart Association.  
+7- usuf, S., Hawken, S., Ôunpuu, S., et al. (2004). Effect of potentially modifiable risk factors associated with myocardial infarction in 52 countries (the INTERHEART study): case-control study.  
 8- Lloyd-Jones, D. M., Hong, Y., Labarthe, D., et al. (2010). Defining and setting national goals for cardiovascular health promotion and disease reduction.
 
 
