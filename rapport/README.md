@@ -276,13 +276,15 @@ Notre groupe est composé de deux personnes et nous avons opté pour une organis
 
 
 ## 2- Répartition des tâches: 
-a- Recherche du jeu de données : **Hawa** et **Issa**  
+ a- Recherche du jeu de données : **Hawa** et **Issa**  
 b- Objectifs détaillés du projet : **Hawa** et **Issa** 
 c- Description du jeu de données : **Issa**  
-d- Préparation du jeu de données :  Sélection des variables pertinentes et constitution de la matrice individus-variables (script R + Documentation) : **Hawa**, **Issa**   
+d- Préparation du jeu de données :  Sélection des variables pertinentes et constitution de la matrice individus-variables (script R + Documentation) : **Hawa**, **Issa** 
+
 e- Mise en place des modèles de classification :  
    - Application de Naïve Bayes, Random Forest : **Issa**  
    - Application de k-Nearest Neighbors (KNN), Arbre de Décision : **Hawa**
+
 f- Rédaction du rapport :
    - Introduction : **Issa**
    - Préparation du jeu de données : **Hawa**  
