@@ -136,7 +136,7 @@ Le deuxième modèle exploré dans cette étude est le classifieur Naïve Bayes,
 L’indice Kappa, égal à 0,7682, indique un fort accord entre les prédictions et la vérité terrain, bien supérieur au simple hasard. Le modèle parvient à détecter 88,95 % des individus réellement malades (sensibilité) tout en identifiant correctement 88,06 % des individus en bonne santé (spécificité). Cette symétrie entre les deux indicateurs montre que le modèle n’est pas biaisé en faveur d’une classe au détriment de l’autre.
 En termes d’utilité clinique, la valeur prédictive positive (PPV) s’élève à 90,53 %, ce qui signifie que plus de 9 individus sur 10 prédits comme malades le sont effectivement. La valeur prédictive négative (NPV) atteint 86,13 %, assurant aussi une fiabilité importante lorsqu’un patient est classé comme sain. Enfin, la balanced accuracy, qui mesure la moyenne entre la sensibilité et la spécificité, est de 88,51 %, un score élevé qui confirme la robustesse du classifieur, même en présence de classes légèrement déséquilibrées.
 
-![Matrice de confusion nb](matrice_confusion_nb.png)
+![Matrice de confusion nb](MC_nb.png)
 **Tableau 2 : Matrice de confusion du modèle Naïve Bayes (accuracy = 88,56 %)]**
 
 Ces résultats montrent qu’en dépit de la simplicité des hypothèses qui le sous-tendent, le modèle Naïve Bayes peut s'avérer extrêmement performant. Sa rapidité d'exécution, son interprétabilité intuitive, et sa capacité à fournir des probabilités explicites font de lui un candidat particulièrement adapté aux problématiques biomédicales, où la lisibilité des décisions est aussi importante que la performance brute.
@@ -148,7 +148,7 @@ Le troisième modèle exploré dans cette étude est l'algorithme des k-plus pro
 Après l’entraînement du modèle et l'évaluation sur l’échantillon de test, les performances ont été mesurées à l’aide de plusieurs indicateurs. La précision globale (accuracy) a atteint 87,02 %, ce qui signifie que 87,02 % des individus ont été correctement classés. Cette précision montre que le modèle est fiable et efficace pour effectuer des prédictions sur des données inconnues. L’indice Kappa, qui mesure l’accord entre les prédictions et les étiquettes réelles, a atteint 0,7355, ce qui correspond à un accord substantiel, bien au-delà du simple hasard. Le modèle a également montré une sensibilité de 87,22 %, indiquant qu’il a correctement détecté près de 9 individus malades sur 10. Cette performance est cruciale dans un cadre médical, où il est essentiel de minimiser les faux négatifs, qui peuvent entraîner de graves conséquences. La spécificité du modèle, qui mesure la capacité à identifier correctement les individus sains, a atteint 86,72 %, indiquant également de bonnes performances dans la détection des individus en bonne santé.
 
 La précision (ou valeur prédictive positive) a été de 91,15 %, ce qui signifie que parmi les individus classés comme malades par le modèle, 91,15 % étaient effectivement malades. Ce chiffre indique une forte fiabilité dans la prédiction des individus malades. En termes de rappel, qui est équivalent à la sensibilité dans ce cas, le modèle a également obtenu un score de 87,22 %, montrant qu’il a bien détecté la majorité des individus réellement malades. Le F1-score, qui combine la précision et le rappel en une seule mesure harmonique, a atteint 0,89, témoignant du bon compromis du modèle entre ces deux critères.
-![Matrice de confusion knn](matrice_confusion_KNN.png)
+![Matrice de confusion knn](MC_KNN.png)
 **Tableau 3 : Matrice de confusion du modèle K-Nearest Neighbors (k = 5)**
 
 Enfin le modèle K-Nearest Neighbors (KNN) a démontré des performances solides et cohérentes, le rendant ainsi fiable pour la classification des maladies cardiovasculaires. Il s'est avéré capable de détecter efficacement les individus malades tout en maintenant une bonne précision dans l'identification des individus sains. Sa simplicité et son efficacité en font une méthode particulièrement pertinente pour les applications médicales, où des décisions rapides et précises sont essentielles.
@@ -162,7 +162,7 @@ La sensibilité du modèle est de 77,61 %, ce qui montre que le modèle a bien d
 La valeur prédictive positive (ou précision) est de 86,67 %, ce qui signifie qu'un individu classé comme malade par le modèle a de fortes chances d'être réellement malade. La valeur prédictive négative est de 83,87 %, indiquant que lorsqu'un individu est classé comme sain, il a une probabilité élevée de l'être réellement.
 Enfin, la balanced accuracy du modèle est de 84,15 %, ce qui combine la sensibilité et la spécificité pour donner une mesure plus robuste de la performance globale, en particulier dans le cas de classes déséquilibrées.
 
-![Matrice de confusion knn](matrice_confusion_DT.png)
+![Matrice de confusion knn](MC_DT.png)
 **Tableau 4: Matrice de confusion du modèle Arbre de Décision**
 
 Le modèle Arbre de Décision montre des performances satisfaisantes pour la classification des maladies cardiovasculaires. Il permet d'identifier correctement la majorité des individus malades tout en maintenant une excellente capacité à prédire les individus sains. Bien que la sensibilité puisse être améliorée, ce modèle constitue une approche robuste et facilement interprétable pour la prédiction des maladies cardiovasculaires.
@@ -313,14 +313,14 @@ Concernant l'utilisation d'outils d'intelligence artificielle, nous avons eu rec
 
 
 # VIII. Références
-World Health Organization. (2021). Cardiovascular diseases (CVDs). Récupéré de : https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)
-Benjamin, E. J., et al. (2019). Heart Disease and Stroke Statistics—2019 Update: A Report From the American Heart Association.
-Rafi S., Gangloff C., Paulhet E., Grimault O., Soulat L., Bouzillé G., Cuggia M. (2022). Out-of-Hospital Cardiac Arrest Detection by Machine Learning Based on the Phonetic Characteristics of the Caller's Voice.
-Byrsell, F., Claesson, A., Ringh, M., Svensson, L., Jonsson, M., Nordberg, P., Forsberg, S., Hollenberg, J., & Nord, A. (2021). Machine learning can support dispatchers to better and faster recognize out-of-hospital cardiac arrest during emergency calls: A retrospective study.
-European Society of Cardiology (ESC). (2019). 2019 ESC Guidelines on cardiovascular disease prevention in clinical practice.
-American Heart Association (AHA). (2021). 2021 Dietary Guidance to Improve Cardiovascular Health: A Scientific Statement From the American Heart Association.
-usuf, S., Hawken, S., Ôunpuu, S., et al. (2004). Effect of potentially modifiable risk factors associated with myocardial infarction in 52 countries (the INTERHEART study): case-control study.
-Lloyd-Jones, D. M., Hong, Y., Labarthe, D., et al. (2010). Defining and setting national goals for cardiovascular health promotion and disease reduction.
+1- World Health Organization. (2021). Cardiovascular diseases (CVDs). Récupéré de : https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)
+2- Benjamin, E. J., et al. (2019). Heart Disease and Stroke Statistics—2019 Update: A Report From the American Heart Association.
+3- Rafi S., Gangloff C., Paulhet E., Grimault O., Soulat L., Bouzillé G., Cuggia M. (2022). Out-of-Hospital Cardiac Arrest Detection by Machine Learning Based on the Phonetic Characteristics of the Caller's Voice.
+4- Byrsell, F., Claesson, A., Ringh, M., Svensson, L., Jonsson, M., Nordberg, P., Forsberg, S., Hollenberg, J., & Nord, A. (2021). Machine learning can support dispatchers to better and faster recognize out-of-hospital cardiac arrest during emergency calls: A retrospective study.
+5- European Society of Cardiology (ESC). (2019). 2019 ESC Guidelines on cardiovascular disease prevention in clinical practice.
+6- American Heart Association (AHA). (2021). 2021 Dietary Guidance to Improve Cardiovascular Health: A Scientific Statement From the American Heart Association.
+7- usuf, S., Hawken, S., Ôunpuu, S., et al. (2004). Effect of potentially modifiable risk factors associated with myocardial infarction in 52 countries (the INTERHEART study): case-control study.
+8- Lloyd-Jones, D. M., Hong, Y., Labarthe, D., et al. (2010). Defining and setting national goals for cardiovascular health promotion and disease reduction.
 
 
 
