@@ -282,9 +282,9 @@ c- Description du jeu de données : **Issa**
 d- Préparation du jeu de données :  Sélection des variables pertinentes et constitution de la matrice individus-variables (script R + Documentation) : **Hawa**, **Issa**   
 e- Mise en place des modèles de classification :  
    - Application de Naïve Bayes, Random Forest : **Issa**  
-   - Application de k-Nearest Neighbors (KNN), Arbre de Décision : **Hawa**   
-f- Rédaction du rapport :  
-   - Introduction : **Issa**  
+   - Application de k-Nearest Neighbors (KNN), Arbre de Décision : **Hawa**
+f- Rédaction du rapport :
+   - Introduction : **Issa**
    - Préparation du jeu de données : **Hawa**  
    - Analyse du modèle Naïve Bayes, Random Forest et évaluation des performances : **Issa**  
    - Analyse de k-Nearest Neighbors (KNN), Arbre de Décision et évaluation des performances : **Hawa**  
