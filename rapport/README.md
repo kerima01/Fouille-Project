@@ -85,8 +85,10 @@ L’objectif de ce projet est de tester différents algorithmes de classificatio
 
 # II.Préparation du jeu de données
 La première étape de notre étude a consisté à préparer les données pour les rendre exploitables dans le cadre d’une modélisation par apprentissage automatique. Le processus a commencé par le chargement du jeu de données , réalisé via la fonction read_csv de R. Celui-ci contient des informations cliniques et biologiques relatives à 918 patients, avec une variable cible binaire HeartDisease indiquant la présence ou l’absence d’une maladie cardiovasculaire.
+
 Afin de garantir la cohérence des traitements statistiques à venir, les variables textuelles ont été converties en facteurs. La variable cible, initialement codée en 0 (absence de maladie) et 1 (présence de maladie), a été renommée de manière plus explicite pour afficher les modalités « Normale » et « Malade », facilitant ainsi l’interprétation des résultats. Par ailleurs, un contrôle de qualité a été effectué : aucune valeur manquante (NA) n’a été détectée, ce qui nous a permis de travailler directement sur l’ensemble des données sans imputation.
 Un examen des doublons a également été réalisé. Bien que le jeu de données d’origine mentionne l’existence de doublons (272 entrées dupliquées), dans notre cas, le fichier utilisé ne contenait pas de lignes identiques, ce qui a évité la nécessité d'une étape de dédoublonnage.
+
 Toutes les variables disponibles dans l’ensemble de données ont été conservées pour l’analyse, car elles se sont révélées pertinentes à la fois d’un point de vue médical et statistique. Pour les variables numériques (Age, RestingBP, Cholesterol, MaxHR, Oldpeak), une visualisation exploratoire a été réalisée sous forme de diagrammes en boîte et de violons, permettant de comparer les distributions entre les variables numériques pour voir s’il y a une différence d’échelle.
 
 **Figure 1:  Distribution des variables quantitatives selon la présence ou l’absence de maladie cardiaque (sans normalisation)**
@@ -97,12 +99,14 @@ Les variables numériques ont donc été normalisées à l’aide du z-score, ce
 **Figure 2: Distribution des variables quantitatives selon la présence ou l’absence de maladie cardiaque ( après normalisation)**
 
 Grâce à la normalisation par z-score, nous observons maintenant que toutes les variables sont désormais exprimées sur une échelle commune. Cela permet une comparaison plus équitable de leurs distributions entre les patients atteints ou non de maladies cardiovasculaires et cette étape est essentielle pour les algorithmes de classification automatique.
+
 Une analyse de la matrice de corrélation a ensuite été menée pour évaluer les relations linéaires entre les variables quantitatives. L’objectif était de détecter d’éventuelles redondances. Les résultats ont montré que les corrélations entre variables restaient relativement faibles (aucune au-dessus de 0,8), ce qui signifie que chaque variable apporte une information complémentaire, et qu’il n’était pas nécessaire d’en supprimer.
 Du côté des variables qualitatives (Sex, ChestPainType, RestingECG, ExerciseAngina, ST_Slope, FastingBS), une exploration de leur distribution selon la présence ou non de maladie cardiaque a également été réalisée, comme le montre la figure 3 ci-dessous. Cette analyse montre que l’ensemble des variables qualitatives étudiées sont potentiellement informatives, car elles permettent de distinguer de manière nette les groupes de patients malades et non malades. 
 
 **Figure 3: Distribution des variables qualitatives selon la présence ou l’absence de maladie cardiaque**
 
 Des tests du chi² ont ensuite été appliqués pour déterminer si elles sont statistiquement liées à la présence d’une maladie cardiaque. Les résultats ont indiqué que toutes les variables catégorielles sont significativement associées à la variable cible (p-value < 0,05 dans tous les cas), ce qui justifie pleinement leur intégration dans la suite de l’analyse.
+
 Enfin, les données ont été consolidées dans une table propre, nommée tb_final dans notre script R. Elle représente une matrice individus-variables complète, sans doublons ni valeurs manquantes, avec des variables quantitatives normalisées et des variables qualitatives pertinentes. Ce jeu de données structuré est désormais prêt pour les étapes suivantes d’entraînement et d’évaluation des modèles de classification.
 
 
@@ -117,6 +121,7 @@ Afin d’évaluer les performances des modèles dans des conditions proches de l
 
 Le modèle Random Forest a été entraîné à l’aide de la fonction randomForest() du package R correspondant, avec un nombre standard de 500 arbres de décision (paramètre ntree = 500). Ce choix permet un bon compromis entre précision, temps de calcul et complexité du modèle. La Forêt Aléatoire génère chaque arbre à partir d’un sous-échantillon aléatoire du jeu de données et sélectionne à chaque nœud un sous-ensemble de variables, ce qui en fait un modèle robuste face à la suradaptation et aux corrélations entre variables.
 À l’issue de l’apprentissage, les prédictions sur le jeu de test ont permis d’évaluer les performances de manière objective. Le modèle affiche une précision globale (accuracy) de 86,6 %, indiquant que plus de huit individus sur dix ont été correctement classés. L’indice Kappa atteint 0,7267, ce qui correspond à un accord substantiel entre les prédictions du modèle et les étiquettes réelles. Le modèle montre une sensibilité de 89,53 %, c’est-à-dire qu’il détecte correctement près de 9 malades sur 10, ce qui est crucial pour une application médicale où les faux négatifs sont coûteux. La spécificité atteint 82,84 %, assurant également une bonne capacité à identifier les individus sains.
+
 Les valeurs prédictives positives et négatives sont respectivement de 87,01 % et 86,05 %, ce qui traduit un bon équilibre dans la fiabilité du modèle sur les deux classes. La balanced accuracy, moyenne de la sensibilité et de la spécificité, est de 86,19 %, confirmant la stabilité du modèle, même dans le cas de classes légèrement déséquilibrées.
 
 ![Matrice de confusion Rf](matrice_confusion_rf.png)
@@ -139,11 +144,28 @@ Ces résultats montrent qu’en dépit de la simplicité des hypothèses qui le 
 ## 3-  Modèle 3 : k-Nearest Neighbors (KNN)
 
 Le troisième modèle exploré dans cette étude est l'algorithme des k-plus proches voisins (KNN). Ce modèle est une approche non paramétrique et basée sur la distance, utilisée pour classer un individu en fonction des classes majoritaires de ses k voisins les plus proches dans l'espace des caractéristiques. Dans cette étude, nous avons utilisé k = 5, ce qui signifie que chaque prédiction repose sur les 5 voisins les plus proches d’un individu dans l’ensemble des données d’entraînement. L’un des grands avantages de ce modèle est l’absence de phase d’entraînement proprement dite : il se contente de mémoriser l’ensemble d’entraînement et effectue des prédictions à partir de cette base. Le modèle KNN est particulièrement apprécié pour sa simplicité et son approche intuitive, ne nécessitant aucun paramètre complexe et étant facilement interprétable, ce qui est un atout considérable dans un contexte biomédical.
+
 Après l’entraînement du modèle et l'évaluation sur l’échantillon de test, les performances ont été mesurées à l’aide de plusieurs indicateurs. La précision globale (accuracy) a atteint 87,02 %, ce qui signifie que 87,02 % des individus ont été correctement classés. Cette précision montre que le modèle est fiable et efficace pour effectuer des prédictions sur des données inconnues. L’indice Kappa, qui mesure l’accord entre les prédictions et les étiquettes réelles, a atteint 0,7355, ce qui correspond à un accord substantiel, bien au-delà du simple hasard. Le modèle a également montré une sensibilité de 87,22 %, indiquant qu’il a correctement détecté près de 9 individus malades sur 10. Cette performance est cruciale dans un cadre médical, où il est essentiel de minimiser les faux négatifs, qui peuvent entraîner de graves conséquences. La spécificité du modèle, qui mesure la capacité à identifier correctement les individus sains, a atteint 86,72 %, indiquant également de bonnes performances dans la détection des individus en bonne santé.
+
 La précision (ou valeur prédictive positive) a été de 91,15 %, ce qui signifie que parmi les individus classés comme malades par le modèle, 91,15 % étaient effectivement malades. Ce chiffre indique une forte fiabilité dans la prédiction des individus malades. En termes de rappel, qui est équivalent à la sensibilité dans ce cas, le modèle a également obtenu un score de 87,22 %, montrant qu’il a bien détecté la majorité des individus réellement malades. Le F1-score, qui combine la précision et le rappel en une seule mesure harmonique, a atteint 0,89, témoignant du bon compromis du modèle entre ces deux critères.
 ![Matrice de confusion knn](matrice_confusion_KNN.png)
 **Tableau 3 : Matrice de confusion du modèle K-Nearest Neighbors (k = 5)**
 
 Enfin le modèle K-Nearest Neighbors (KNN) a démontré des performances solides et cohérentes, le rendant ainsi fiable pour la classification des maladies cardiovasculaires. Il s'est avéré capable de détecter efficacement les individus malades tout en maintenant une bonne précision dans l'identification des individus sains. Sa simplicité et son efficacité en font une méthode particulièrement pertinente pour les applications médicales, où des décisions rapides et précises sont essentielles.
+
+## 4-  Modèle 4 : Arbre de Décision (Decision Tree)
+Le quatrième modèle exploré dans cette étude est l'Arbre de Décision (Decision Tree). Cet algorithme de classification permet de diviser l'espace des caractéristiques en sous-espaces homogènes en fonction des critères d'attributs. L'Arbre de Décision est particulièrement apprécié pour sa simplicité et son interprétabilité. Il génère des décisions sous forme d'un arbre où chaque nœud représente un test sur un attribut et chaque branche représente un résultat possible du test.
+Le modèle d'Arbre de Décision a été construit à l'aide de la fonction rpart() du package R rpart. Il a été ajusté pour classer les individus en deux catégories : "Malade" et "Normale", en fonction de leurs caractéristiques cliniques et biologiques. Pour ce modèle, nous avons utilisé les variables du jeu de données après le même pré-traitement que les autres modèles.
+
+L'évaluation des performances du modèle a été réalisée sur un jeu de test indépendant. Les résultats obtenus via la matrice de confusion indiquent une précision (accuracy) de 84,97 %, ce qui signifie que près de 85 % des individus ont été correctement classés. Ce taux de précision est relativement élevé, ce qui reflète la bonne capacité du modèle à effectuer des prédictions fiables sur des données inconnues.
+La sensibilité du modèle est de 77,61 %, ce qui montre que le modèle a bien détecté environ 8 individus malades sur 10, un point essentiel dans le cadre médical où il est crucial de minimiser les faux négatifs. La spécificité atteint 90,70 %, indiquant que le modèle est également efficace pour détecter les individus sains.
+La valeur prédictive positive (ou précision) est de 86,67 %, ce qui signifie qu'un individu classé comme malade par le modèle a de fortes chances d'être réellement malade. La valeur prédictive négative est de 83,87 %, indiquant que lorsqu'un individu est classé comme sain, il a une probabilité élevée de l'être réellement.
+Enfin, la balanced accuracy du modèle est de 84,15 %, ce qui combine la sensibilité et la spécificité pour donner une mesure plus robuste de la performance globale, en particulier dans le cas de classes déséquilibrées.
+
+![Matrice de confusion knn](matrice_confusion_DT.png)
+**Tableau 4: Matrice de confusion du modèle Arbre de Décision**
+
+Le modèle Arbre de Décision montre des performances satisfaisantes pour la classification des maladies cardiovasculaires. Il permet d'identifier correctement la majorité des individus malades tout en maintenant une excellente capacité à prédire les individus sains. Bien que la sensibilité puisse être améliorée, ce modèle constitue une approche robuste et facilement interprétable pour la prédiction des maladies cardiovasculaires.
+
 
 
