@@ -178,4 +178,33 @@ On observe, à travers le tableau comparatif, les performances obtenues par chaq
 
 Naïve Bayes offre ainsi le meilleur compromis entre précision, stabilité et efficacité, ce qui en fait le modèle le plus performant dans cette étude. Il est suivi de près par KNN, qui présente un bon équilibre, et Random Forest, qui, malgré une précision légèrement inférieure, se distingue par une très bonne capacité de détection des cas malades. Le modèle Arbre de Décision, quant à lui, bien qu’un peu en retrait sur le plan des performances, conserve un intérêt en raison de sa lisibilité et de sa simplicité d’interprétation. Le choix final du modèle pourrait ainsi dépendre du contexte d’application, en particulier du niveau de tolérance aux erreurs de classification et de la priorité donnée à la transparence du modèle. L’ensemble de cette évaluation permet donc de conclure que Naïve Bayes constitue une solution optimale pour la détection des maladies cardiovasculaires dans le cadre de cette étude, tout en soulignant les avantages comparatifs des autres approches.
 
+## 2- Optimisation des paramètres
+Bien que les résultats initiaux soient satisfaisants, une phase d’optimisation a été menée pour améliorer encore les performances des modèles, notamment en ajustant certains hyperparamètres.
+
+Dans le cadre du classifieur Naïve Bayes, nous avons comparé les performances du modèle avec et sans lissage de Laplace (paramètre laplace = 1). Ce lissage a pour but d’éviter les probabilités nulles pour les combinaisons attributs/classes absentes dans les données d’entraînement, ce qui améliore généralement la robustesse. Sans lissage, le modèle a obtenu une accuracy de 88,56 %, avec une sensibilité de 88,95 % et une spécificité de 88,06 %, indiquant un bon équilibre dans la détection des deux classes. Le Kappa de 0,7682 confirme une bonne concordance avec les données réelles. Avec le lissage de Laplace, l’accuracy est légèrement réduite à 87,54 %, mais la sensibilité augmente à 90,53 %, ce qui traduit une meilleure capacité à identifier les individus malades. En revanche, la spécificité diminue à 83,82 %, montrant une hausse des faux positifs. Le Kappa reste élevé (0,7468), proche de celui obtenu sans lissage.
+
+Ainsi, l’ajout du lissage de Laplace a permis de renforcer la sensibilité du modèle, ce qui peut être particulièrement pertinent dans un contexte médical où la priorité est de ne pas manquer un malade, même au prix d’une légère baisse de spécificité. Le modèle sans lissage reste toutefois plus équilibré, avec une précision symétrique entre les classes. Le choix entre les deux variantes dépendra donc des objectifs cliniques visés : maximiser la détection ou maintenir un équilibre décisionnel.
+
+**Tableau 6 :  Comparaison des performances selon le critère de lissage (lissage vs non lissage) dans le modèle Naïve bayes**
+
+Pour le modèle Arbre de décision, deux ajustements principaux ont été appliqués : l’utilisation de l’entropie comme critère de division, en lieu et place de l’indice de Gini par défaut, et la limitation de la profondeur de l’arbre à 5 niveaux pour réduire le risque de surapprentissage. Le critère entropie favorise des séparations plus informatives, tandis que la profondeur restreinte permet de mieux généraliser sur des données bruitées.
+Avec ces réglages, le modèle atteint une accuracy de 83,61 %, une sensibilité élevée de 89,94 %, et une spécificité de 75,74 %. Le Kappa de 0,6644 reflète une concordance correcte entre les prédictions et les observations. Comparé à la version utilisant Gini (accuracy de 84,97 %, sensibilité de 77,61 %, spécificité de 90,53 %), on observe un meilleur rappel pour la classe positive, au prix d’une légère baisse de la spécificité et de l’accuracy globale.
+
+Ainsi, le choix de l’entropie favorise la détection des cas positifs (malades), ce qui peut être préférable dans un cadre médical, bien que le modèle avec Gini offre un meilleur équilibre global. L’arbre reste également intéressant pour son interprétabilité.
+
+
+**Tableau 7:  Comparaison des performances selon le critère de division (Gini vs Entropie) dans le modèle Arbre de Décision**
+
+Dans le cas du modèle K-plus proches voisins (KNN), nous avons procédé à une validation croisée sur l’hyperparamètre k afin de déterminer sa valeur optimale. Une validation croisée à 10 plis a été utilisée, et les performances ont été évaluées à l’aide du score F1 macro, qui pondère équitablement les performances sur chaque classe. Il est apparu que les valeurs de k comprises entre 9 et 10 offraient les meilleurs compromis, avec un score F1 supérieur à 0,85. Pour des valeurs plus faibles (ex. : k = 1 ou 3), le modèle était trop sensible au bruit et présentait un surapprentissage. À l’inverse, des valeurs de k trop élevées dégradaient la performance en diluant l’influence des voisins les plus pertinents. Le réglage final avec k= 9 s’est donc révélé efficace pour stabiliser les prédictions tout en conservant une capacité de discrimination satisfaisante entre les classes.
+
+
+
+**Tableau 8: Validation croisée de KNN avec cv=10 et scoring='f1_macro'**
+
+Pour l’algorithme Random Forest, nous avons exploré l’impact de l’augmentation du nombre d’arbres (ntree) sur la performance du modèle. Quatre configurations ont été testées : 50, 500, 5000 et 50000 arbres. Il ressort de cette analyse qu’une augmentation modérée du nombre d’arbres, jusqu’à 500, permet une nette amélioration des performances : l’accuracy atteint alors 87,87 %, avec une sensibilité de 92,31 %, une spécificité de 82,35 % et un Kappa de 0,7525, valeurs parmi les plus élevées observées. Au-delà de ce seuil, les gains sont marginaux voire absents, et les performances tendent à stagner ou décroître légèrement. Par exemple, avec 5000 ou 50000 arbres, l’accuracy reste autour de 87,5 %, mais au prix d’une complexité computationnelle bien plus élevée. Ainsi, ntree = 500 représente un compromis optimal, maximisant la précision tout en évitant une surcharge des ressources.
+
+**Tableau 9 : Influence du nombre d’arbres (ntree) sur les performances du modèle Random Forest**
+
+Après avoir évalué les performances des différents modèles de classification, il est désormais essentiel d’examiner plus en détail les résultats obtenus, notamment en identifiant les facteurs les plus déterminants dans la prédiction des maladies cardiovasculaires. Cette étape permettra de tirer des enseignements concrets en vue d’améliorer les stratégies de prévention et de détection précoce.
+
 
