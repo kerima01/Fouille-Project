@@ -1,0 +1,367 @@
+---
+title: "Projet_Fouille"
+author: "IssaKerimaKhalil"
+output: html_document
+date: "2025-04-02"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# libraries necessaires
+```{r}
+#install.packages("corrplot")
+library(tidyverse)
+library(dplyr)
+library(corrplot)
+library(magrittr) # syntaxe, notamment affectation %<>%
+library(GGally)   # plot pairs better than default plot
+library(plotly)   # plots interactifs
+library(factoextra)
+library(ggplot2)
+library(caret)
+library(rpart)
+library(rpart.plot)
+library(randomForest)
+library(flextable)
+library(tibble)
+library(e1071)
+library(reshape2)
+library(keras)
+library(tensorflow)
+```
+
+```{r}
+read_csv("data/heart.csv")
+```
+
+```{r}
+tb <- read_csv("data/heart.csv") %>%
+  mutate_if(is.character, factor)
+head(tb)
+```
+
+```{r}
+tb$HeartDisease
+c('Normale','Malade')[ tb$HeartDisease+1] %>% # tb$HeartDisease donne l'indice à aller chercher dans le vecteur ['Normale','Malade']
+  as.factor
+```
+Modification du tibble : fonction `mutate`
+```{r}
+tb=  tb %>% 
+    mutate(HeartDisease=as.factor( c('Normale','Malade'))[ HeartDisease +1] ) 
+
+tb$HeartDisease=as.factor(tb$HeartDisease)
+```
+Ceci permet de remplacer les factors 0,1 par normale et malade
+
+```{r}
+sum(is.na(data))
+```
+# Les valeurs numeriques
+```{r}
+numerical_columns <- c("Age", "RestingBP", "Cholesterol", "MaxHR", "Oldpeak", "HeartDisease")
+tb_num= tb[numerical_columns]
+tb_num
+```
+
+En *x* les classes, et pour chaque classe, les effectifs, sous forme de `barplot` :
+
+```{r}
+tb %>%
+  ggplot(aes(x=HeartDisease, fill=HeartDisease)) + # aes pour aesthetic
+  geom_bar(stat = 'count') + # https://ggplot2.tidyverse.org/reference/geom_bar.html
+  geom_text(stat='count', aes(label=..count..), vjust=-0.5) # pour afficher les effectifs
+```
+
+
+# Transformation : `pivot_longer` de `tidyr` (plusieurs variables → (variable name, variable value) )
+
+Manip pour avoir des tuples (classe, variable, value)
+```{r}
+tbg = tb_num %>% 
+  rowid_to_column() %>% # ajout d'un identifiant de ligne 
+  pivot_longer(Age:Oldpeak, names_to='variable', values_to='value')
+tbg
+```
+
+`rowid` sera nécessaire si on veut revenir au format de départ sinon impossible de savoir quelle mesures (d'alcool, de ash, ...) il faut rassembler pour reconstruire le tableau de départ.
+
+```{r}
+tbg %>%
+  ggplot(aes(HeartDisease, value, color=HeartDisease)) +
+  geom_boxplot() +
+  facet_wrap(~ variable)
+```
+**Conclusion :** On voit bien que Age et Oldpeak sont écrasé par les autres Variables quantitatives. Il est donc pertinent de normaliser
+
+Plot interactif avec `plotly` (on sauvegarde le résultat de `ggplot` et on le passe à `ggplotly`)
+```{r}
+p = tbg %>%
+  ggplot(aes(HeartDisease, value, color=HeartDisease)) +
+  geom_boxplot() +
+  facet_wrap(~ variable)
+ggplotly(p)
+```
+
+
+On enregistre les paramètres de normalisation (z-score) de chacune des variables :
+```{r}
+znorm = tbg %>% 
+  group_by(variable) %>%
+  summarize(mean=mean(value), sd=sd(value), min = min(value), max=max(value), median=median(value))
+znorm
+```
+
+jointure et ajout des *z-scores*
+```{r}
+tbg %<>% 
+  inner_join(znorm, by='variable') %>% 
+  mutate(value.z = (value-mean)/sd)
+tbg
+```
+
+Vérification de la normalisation (moyenne à 0 et écart-type à 1)
+```{r}
+tbg %>% 
+  group_by(variable) %>% 
+  summarize(moyenne=round(mean(value.z), 4), `écart-type`=sd(value.z)) # nom de colonne avec un é pour illustrer mais à éviter en général
+```
+# Visualisation des distributions avec `ggplot` + `facet`
+
+Visualisation
+```{r}
+tbg %>%
+  ggplot(aes(HeartDisease, value.z, color=HeartDisease)) +
+  geom_violin() +
+  geom_jitter(alpha=.3, width=.15, size=0.5) +
+  facet_wrap(~ variable)
+```
+**Conclusion :** Maintenant les variables quantitatives sont comparables.
+
+```{r}
+# Normalisation des variables numériques avec scale
+tb_numpur=tb[numerical_columns] %>% 
+  select(-HeartDisease)
+tb_numpur <- scale(tb_numpur)
+colSums(tb_numpur)
+```
+
+
+
+```{r}
+# Calcul de la matrice de corrélation
+correlation_matrix <- cor(tb_numpur)
+
+# Affichage de la matrice de corrélation
+print(correlation_matrix)
+
+# Visualisation de la corrélation
+corrplot(correlation_matrix, method = "circle")
+
+```
+**Conclusion :** Si deux variables sont fortement corrélées (|corr| > 0.8), l’une peut être supprimée car elles apportent la même information. Mais ici, toutes les corrélations sont faibles, donc aucune variable n’est totalement redondante et donc on garde nos toutes belles variables hhh.
+
+
+
+```{r}
+# Tester l'indépendance avec la variable cible (Cardiopathie) pour chaque variable catégorielle
+tb$FastingBS= as.factor(tb$FastingBS)
+categorical_columns <- c("Sex", "ChestPainType", "RestingECG", "ExerciseAngina", "ST_Slope", "FastingBS")
+for (col in categorical_columns) {
+  #cat("\nTest du chi-carré pour", col, ":\n")
+  test_result <- chisq.test(table(tb[[col]], tb$HeartDisease))
+  print(test_result)
+}
+
+# La méthode de prof
+tb_cat= tb[categorical_columns]
+x= tb[categorical_columns]
+y=tb$HeartDisease
+sapply(colnames(x), function(a)chisq.test(x=x[,a], y=y)$p.value)
+```
+**Conclusion : ** p-value < 0.05 : Il y a une relation significative entre toutes les variables catégorielles et HeartDisease. Toutes les variables catégorielles sont informatives et doivent être conservées.
+
+
+# Liaison attribut-classe
+
+## Table de contingence
+```{r}
+table(tb$HeartDisease, tb_cat$ChestPainType)
+```
+
+## Visualisation graphique
+```{r}
+ plot(table(tb_cat$ChestPainType, tb$HeartDisease), main='ChestPainType')
+```
+
+
+```{r}
+tb %>%
+  ggbivariate(outcome="HeartDisease", explanatory= colnames(tb[categorical_columns]))
+```
+
+
+
+```{r}
+# Affichage
+foo=sapply(colnames(x), 
+           function(a)
+             plot(
+               table(unlist(x[,a]), y),
+               main=a
+             
+             )
+)
+```
+
+# Conclusion générale : Toutes les variables sont pertinentes pour la suite de l'analyse.
+
+```{r}
+colonne_numerique <- c("Age", "RestingBP", "Cholesterol", "MaxHR", "Oldpeak")
+tb_final=tb
+tb_final[colonne_numerique]= scale(tb_final[colonne_numerique])
+tb_final
+```
+
+
+# Séparation des données en ensemble d'entraînement et de test
+```{r}
+set.seed(42)  # Pour garantir la reproductibilité
+trainIndex <- createDataPartition(tb_final$HeartDisease, p = 2/3, list = FALSE)
+trainData <- tb[trainIndex, ]
+testData <- tb[-trainIndex, ]
+
+# Vérification des dimensions des ensembles
+dim(trainData)
+dim(testData)
+```
+
+# Foret aleatoire
+```{r}
+rf_model <- randomForest(HeartDisease ~ ., ntree = 50000, data = trainData, importance = TRUE) # Entraîner un modèle random forest sur l'ensemble d'entraînement
+
+
+predictions <- predict(rf_model, newdata = testData) # Prédictions
+confusionMatrix(predictions, testData$HeartDisease) # Matrice de confusion
+table(predictions,testData$HeartDisease)
+importance(rf_model) # afficher l'importance des variables
+
+varImpPlot(rf_model, main = "Importance des variables") # visualiser l'importance des variables
+```
+
+
+# Naive Bayesien
+## Entraînement sans lissage Laplace = 0
+```{r}
+nb_model <- naiveBayes(HeartDisease ~ ., data = trainData)
+nb_predictions <- predict(nb_model, newdata = testData)
+confusionMatrix(nb_predictions, testData$HeartDisease)
+print(nb_model)
+```
+## Réentraînement avec lissage de Laplace =1 pour éviter proba de 0
+```{r}
+model_nb_laplace <- naiveBayes(HeartDisease ~ ., data = trainData, laplace = 1)
+
+pred_nb_laplace <- predict(model_nb_laplace, testData)
+
+confusionMatrix(pred_nb_laplace, testData$HeartDisease, positive = "Malade")
+
+```
+
+
+# Arbre de decision
+## division Gini
+```{r}
+modele_tree <- rpart(HeartDisease ~ ., data = trainData, method = "class", parms = list(split = "gini"))
+
+pred_tree <- predict(modele_tree, newdata = testData, type = "class") # Prédiction sur les données de test
+
+mat_tree <- confusionMatrix(pred_tree, testData$HeartDisease, positive = "Normale")
+
+print(mat_tree)
+rpart.plot(modele_tree, type = 2, extra = 104, fallen.leaves = TRUE)
+```
+
+## division Entropie
+```{r}
+tree_entropy <- rpart(HeartDisease ~ ., data = trainData,
+                      method = "class",
+                      parms = list(split = "information"),
+                      control = rpart.control(cp = 0.01, maxdepth = 5))
+
+pred_tree_entropy <- predict(tree_entropy, testData, type = "class")
+confusionMatrix(pred_tree_entropy, testData$HeartDisease, positive = "Malade")
+
+```
+
+
+
+**Tableau des confusions avec ggplot2**
+```{r}
+mat_conf <- matrix(c(156, 30, 16, 104),
+                   nrow = 2, byrow = TRUE,
+                   dimnames = list("Classe réelle" = c("Malade", "Normale"),
+                                   "Classe prédite" = c("Malade", "Normale")))
+
+
+df_long <- melt(mat_conf)
+colnames(df_long) <- c("ClasseReelle", "ClassePredite", "Valeur")
+
+
+df_long$ClasseReelle <- factor(df_long$ClasseReelle, levels = rev(c("Malade", "Normale")))
+
+
+df_long$ClassePredite <- factor(df_long$ClassePredite, levels = c("Malade", "Normale"))
+
+ggplot(df_long, aes(x = ClassePredite, y = ClasseReelle)) +
+  geom_tile(aes(fill = Valeur), color = "#f0f0f0", linewidth = 1.2) +
+  geom_text(aes(label = Valeur), color = "black", size = 6, fontface = "bold") +
+  scale_fill_gradient2(low = "#e0f7fa", mid = "#80deea", high = "#006064", midpoint = 100, guide = "none") +
+  labs(
+    title = "Matrice de confusion du modèle Arbre de Décision",
+    x = "Classe Prédite",
+    y = "Classe Réelle"
+  ) +
+  theme_minimal(base_family = "Arial", base_size = 14) +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 15, face = "bold", color = "#006064"),
+    axis.text = element_text(face = "bold"),
+    panel.grid = element_blank()
+  )
+
+```
+
+**Tableau de comparaison des modeles**
+```{r}
+# Les données
+data <- tibble::tibble(
+  Modèles = c("Random Forest", "Naïve Bayes", "K-Nearest Neighbors", "Arbre de Décision"),
+  `Précision globale (Accuracy)` = c("86,6 %", "88,56 %", "87,02 %", "84,97 %"),
+  Sensibilité = c("89,53 %", "88,95 %", "87,22 %", "77,61 %"),
+  `Indice Kappa` = c("0,7267", "0,7682", "0,7355", "0,6778"),
+  `Balanced Accuracy` = c("86,19 %", "88,51 %", "86,96 %", "84,15 %")
+)
+
+# Création du tableau flextable
+flextable(data) %>%
+  set_header_labels(
+    Modèles = "Modèles",
+    `Précision globale (Accuracy)` = "Précision globale (Accuracy)",
+    Sensibilité = "Sensibilité",
+    `Indice Kappa` = "Indice Kappa",
+    `Balanced Accuracy` = "Balanced Accuracy"
+  ) %>%
+  bold(part = "header") %>%
+  fontsize(size = 12, part = "all") %>%
+  color(color = "black") %>%
+  bg(part = "header", bg = "#DDEBF7") %>%
+  autofit()
+
+
+```
+
+
+
+
