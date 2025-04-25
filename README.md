@@ -41,6 +41,14 @@ En conclusion, cette étude illustre la pertinence de l'apprentissage automatiqu
 Pour une analyse approfondie de la méthodologie employée, des résultats obtenus et des recommandations formulées, veuillez consulter le fichier README.md situé dans le repertoire `rapport`.     
 lien vers le rapport:  https://github.com/kerima01/Fouille-Project/blob/master/rapport/README.md
 
+
+## **Auteurs :** 
+Hawa BALDE  
+Issa KERIMA-KHALIL
+
+Master Bioinformatique et Biologie des Systèmes
+Université Toulouse Paul Sabatier 2024-2025
+
 ## **Références :**  
 1- World Health Organization. (2021). Cardiovascular diseases (CVDs). Lien vers le rapport https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)  
 2- Benjamin, E. J., et al. (2019). Heart Disease and Stroke Statistics—2019 Update: A Report From the American Heart Association.  
