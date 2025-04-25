@@ -172,6 +172,7 @@ Le modèle Arbre de Décision montre des performances satisfaisantes pour la cla
 ## 1- Mesure comparative des performances
 Les performances ont été évaluées selon plusieurs métriques complémentaires : la précision globale (accuracy), qui reflète la proportion totale de bonnes classifications ; la sensibilité, qui mesure la capacité du modèle à détecter les cas positifs (individus malades) ; l’indice Kappa, qui estime la qualité de la classification en tenant compte de l’accord dû au hasard ; et la balanced accuracy, qui représente la moyenne entre sensibilité et spécificité, particulièrement utile dans le cas de classes déséquilibrées.
 
+![Comparaison des performances des models](tableau_modeles.png)
 **Tableau 5 : Comparaison des performances des modèles selon différentes métriques d’évaluation**
 
 On observe, à travers le tableau comparatif, les performances obtenues par chaque modèle. Random Forest obtient une précision globale de 86,6 %, une sensibilité de 89,53 %, un indice Kappa de 0,7267 et une balanced accuracy de 86,19 %. Le modèle Naïve Bayes se distingue légèrement avec la meilleure précision globale (88,56 %), une sensibilité de 88,95 %, un indice Kappa de 0,7682 et une balanced accuracy de 88,51 %. Le KNN affiche également de bonnes performances avec une précision de 87,02 %, une sensibilité de 87,22 %, un Kappa de 0,7355 et une balanced accuracy de 86,96 %. Enfin, l’Arbre de Décision obtient une précision de 84,97 %, une sensibilité de 77,61 %, un indice Kappa de 0,6778 et une balanced accuracy de 84,15 %.
@@ -206,5 +207,65 @@ Pour l’algorithme Random Forest, nous avons exploré l’impact de l’augment
 **Tableau 9 : Influence du nombre d’arbres (ntree) sur les performances du modèle Random Forest**
 
 Après avoir évalué les performances des différents modèles de classification, il est désormais essentiel d’examiner plus en détail les résultats obtenus, notamment en identifiant les facteurs les plus déterminants dans la prédiction des maladies cardiovasculaires. Cette étape permettra de tirer des enseignements concrets en vue d’améliorer les stratégies de prévention et de détection précoce.
+
+# V. Interprétation et analyse des résultats
+
+## 1- Identification des facteurs de risque
+À partir des modèles construits, notamment la forêt aléatoire (Random Forest), nous avons extrait les variables les plus déterminantes dans la prédiction de maladies cardiovasculaires. L’importance de chaque variable a été mesurée à l’aide de deux indicateurs complémentaires : la diminution moyenne de l’exactitude (MeanDecreaseAccuracy) et la diminution moyenne de l’impureté de Gini (MeanDecreaseGini). Ces indicateurs permettent d’identifier les caractéristiques qui contribuent le plus à la différenciation entre individus malades et non malades.
+
+![importances des variables](importances_variables_rf.png)
+**Figure 1 : Importance des variables selon la précision (Accuracy) et l’impureté de Gini dans le modèle Random Forest.**
+
+Les résultats révèlent que la variable ST_Slope (pente du segment ST lors d’un électrocardiogramme à l’effort) est de loin la plus influente, avec une valeur de 68,33 en diminution de Gini et une contribution significative à l’exactitude du modèle. Elle est suivie par ChestPainType (type de douleur thoracique), Oldpeak (dépression du segment ST après l’effort), et Cholesterol (taux de cholestérol sanguin), toutes associées à des altérations typiques de la fonction cardiaque en situation de stress. Ces variables reflètent directement des signaux physiopathologiques du cœur en souffrance, ce qui explique leur pouvoir prédictif élevé.
+
+D'autres variables telles que MaxHR (fréquence cardiaque maximale atteinte), ExerciseAngina (présence d’angine à l’effort) et Age conservent une importance non négligeable. Bien qu’Age soit un facteur de risque bien établi dans la littérature médicale, il intervient ici de manière secondaire par rapport à des indicateurs cliniques plus directs, probablement en raison d’une interaction avec d’autres variables plus spécifiques.
+
+Ces résultats confirment l’importance de combiner des mesures de stress cardiaque, des biomarqueurs sanguins, et des antécédents symptomatiques pour prédire efficacement les maladies cardiovasculaires. L’approche utilisée permet ainsi non seulement de classifier avec précision les patients, mais aussi d’identifier les éléments clés sur lesquels s’appuyer pour une détection clinique plus ciblée.
+
+## 2- Discussion et recommandations
+
+Les analyses menées suggèrent plusieurs pistes concrètes d’amélioration, tant en termes de prévention que de détection précoce des maladies cardiovasculaires. D’un point de vue médical, l’importance marquée de variables comme ST_Slope, Oldpeak, et ChestPainType souligne la nécessité de systématiser les tests d’effort et les électrocardiogrammes dans les bilans de santé des patients à risque. Ces examens, souvent relégués au second plan chez les patients asymptomatiques, se révèlent ici comme des leviers diagnostiques puissants, en cohérence avec les recommandations des sociétés cardiologiques (ESC, 2019 ; AHA, 2021).
+
+Il est intéressant de noter que certaines variables traditionnellement reconnues comme facteurs de risque majeurs, telles que l’âge ou la pression artérielle au repos (RestingBP), apparaissent ici avec une importance relativement modérée. Ce constat peut s’expliquer par plusieurs facteurs. D’une part, l’échantillon analysé peut présenter une distribution d’âge relativement homogène, limitant son pouvoir discriminant dans le modèle. D’autre part, dans le cadre d’une classification supervisée fondée sur des réponses cliniques immédiates (ex. : douleur thoracique à l’effort, réponse ECG), des variables statiques comme l’âge peuvent être indirectement capturées par d’autres attributs plus dynamiques.
+
+Cela ne remet toutefois pas en cause leur pertinence clinique. En effet, de nombreuses études (Yusuf et al., 2004 ; Lloyd-Jones et al., 2010) ont démontré que l’âge reste un prédicteur robuste des maladies cardiovasculaires, notamment en lien avec la rigidité artérielle, l'inflammation chronique et l'accumulation de facteurs de risque. De même, des paramètres biologiques comme le cholestérol ou la glycémie ont été largement documentés comme contributeurs aux mécanismes athérogènes, mais leur poids dans un modèle prédictif peut être atténué si leurs valeurs sont bien contrôlées dans une population donnée.
+
+Ces résultats appellent donc à nuancer l’interprétation des modèles d’apprentissage automatique : ceux-ci identifient les meilleures variables dans un contexte spécifique de classification, mais cela ne signifie pas nécessairement que les autres sont négligeables sur le plan épidémiologique ou pronostique. En conséquence, les modèles doivent être utilisés comme des outils complémentaires à l’expertise médicale, capables de révéler des signaux pertinents dans des cas cliniques concrets, sans se substituer aux connaissances établies.
+
+Enfin, les résultats renforcent l’idée que la prévention cardiovasculaire devrait combiner des actions populationnelles (sur le tabac, l’alimentation, l’activité physique) avec une stratification personnalisée du risque, en intégrant des indicateurs cliniques sensibles aux premiers signes de dysfonctionnement cardiaque. L’intelligence artificielle, utilisée avec prudence et transparence, pourrait ainsi améliorer les stratégies de dépistage et d’intervention ciblée.
+
+# VI. Conclusion
+L’ensemble des travaux réalisés a permis d’évaluer l’efficacité comparative de plusieurs modèles d’apprentissage supervisé dans la détection des maladies cardiovasculaires, à partir de données cliniques et biologiques. Les modèles basés sur les forêts aléatoires et le Naïve Bayes avec lissage de Laplace ont obtenu les meilleures performances globales en termes de précision, de sensibilité et de robustesse, confirmant leur potentiel pour des tâches de classification médicale.
+L’analyse des variables les plus influentes a mis en évidence le rôle central de certains marqueurs cliniques fonctionnels, tels que la pente du segment ST (ST_Slope), l’indice Oldpeak ou les types de douleurs thoraciques (ChestPainType), souvent sous-exploités dans les bilans standards. Ces résultats soulignent l’intérêt d’intégrer des tests dynamiques dans les protocoles de dépistage, et plaident pour une médecine préventive plus réactive et personnalisée.
+
+Par ailleurs, la relativisation du poids de variables classiquement reconnues comme l’âge ou la pression artérielle au repos met en lumière la complexité des interactions entre facteurs de risque, et rappelle que les modèles prédictifs doivent être interprétés dans un cadre clinique cohérent, en complément de l’expertise médicale.
+
+En conclusion, cette étude illustre la pertinence de l’apprentissage automatique dans l’aide à la décision médicale. Elle ouvre la voie à une meilleure stratification des risques, mais appelle également à un dialogue constant entre data science et savoir médical, pour garantir une application éthique, explicable et efficace de ces outils dans la pratique clinique.
+
+# VII. Gestion de projet
+
+## 1- Organisation du groupe et gestion des discussions
+
+Notre groupe est composé de deux personnes et nous avons opté pour une organisation collaborative avec une répartition claire des tâches. Nous avons utilisé GitHub pour suivre l'avancement du projet et un document partagé sur Drive pour centraliser nos idées et nos progrès. Les discussions ont eu lieu lors de réunions en personne, par téléphone et par messages, permettant ainsi une communication fluide. À chaque étape clé, nous avons échangé sur les méthodes à adopter, prenant des décisions communes en fonction de la faisabilité, de la pertinence et des délais à respecter. Ces échanges réguliers nous ont permis de réajuster le projet selon les progrès et les résultats que nous avons obtenus.
+
+
+## 2- Répartition des tâches: 
+
+ a. Recherche du jeu de données : Hawa, Issa
+ b. Objectifs détaillés du projet : Hawa
+ c. Description du jeu de données : Issa
+ d. Préparation du jeu de données : Sélection des variables pertinentes et constitution de la matrice individus-  variables (script R + Documentation) : Hawa, Issa
+ e. Mise en place des modèles de classification :
+    - Application de Naïve Bayes, Random Forest : Issa
+    - Application de k-Nearest Neighbors (KNN), Arbre de Décision : Hawa
+ f. Rédaction du rapport :
+    - Introduction : Issa
+    - Préparation du jeu de données : Hawa
+    - Analyse du modèle Naïve Bayes, Random Forest et évaluation des performances : Issa
+    - Analyse de k-Nearest Neighbors (KNN), Arbre de Décision et évaluation des performances : Hawa
+    - Interprétation et analyse des résultats : Hawa, Issa
+    -Conclusion : Hawa, Issa
+
+
 
 
