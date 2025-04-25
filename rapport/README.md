@@ -201,15 +201,34 @@ Avec ces réglages, le modèle atteint une accuracy de 83,61 %, une sensibilité
 Ainsi, le choix de l’entropie favorise la détection des cas positifs (malades), ce qui peut être préférable dans un cadre médical, bien que le modèle avec Gini offre un meilleur équilibre global. L’arbre reste également intéressant pour son interprétabilité.
 
 
+| Divisions | Précision | Sensibilité | Spécificité | Balanced Accuracy | Kappa  |
+|-----------|-----------|-------------|-------------|-------------------|--------|
+| Gini      | 84,97 %   | 77,61 %     | 90,53 %     | 83,50 %           | 0,6778 |
+| Entropie  | 83,61 %   | 89,94 %     | 75,74 %     | 82,84 %           | 0,6644 |
+
+
 **Tableau 7:  Comparaison des performances selon le critère de division (Gini vs Entropie) dans le modèle Arbre de Décision**
 
 Dans le cas du modèle K-plus proches voisins (KNN), nous avons procédé à une validation croisée sur l’hyperparamètre k afin de déterminer sa valeur optimale. Une validation croisée à 10 plis a été utilisée, et les performances ont été évaluées à l’aide du score F1 macro, qui pondère équitablement les performances sur chaque classe. Il est apparu que les valeurs de k comprises entre 9 et 10 offraient les meilleurs compromis, avec un score F1 supérieur à 0,85. Pour des valeurs plus faibles (ex. : k = 1 ou 3), le modèle était trop sensible au bruit et présentait un surapprentissage. À l’inverse, des valeurs de k trop élevées dégradaient la performance en diluant l’influence des voisins les plus pertinents. Le réglage final avec k= 9 s’est donc révélé efficace pour stabiliser les prédictions tout en conservant une capacité de discrimination satisfaisante entre les classes.
 
 
+| k            | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   | 11   | 12   | 13   | 14   | 15   |
+|--------------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
+| F1 macro moy | 0.80 | 0.80 | 0.82 | 0.82 | 0.84 | 0.83 | 0.84 | 0.85 | 0.85 | 0.85 | 0.85 | 0.85 | 0.85 | 0.85 | 0.85 |
+
 
 **Tableau 8: Validation croisée de KNN avec cv=10 et scoring='f1_macro'**
 
 Pour l’algorithme Random Forest, nous avons exploré l’impact de l’augmentation du nombre d’arbres (ntree) sur la performance du modèle. Quatre configurations ont été testées : 50, 500, 5000 et 50000 arbres. Il ressort de cette analyse qu’une augmentation modérée du nombre d’arbres, jusqu’à 500, permet une nette amélioration des performances : l’accuracy atteint alors 87,87 %, avec une sensibilité de 92,31 %, une spécificité de 82,35 % et un Kappa de 0,7525, valeurs parmi les plus élevées observées. Au-delà de ce seuil, les gains sont marginaux voire absents, et les performances tendent à stagner ou décroître légèrement. Par exemple, avec 5000 ou 50000 arbres, l’accuracy reste autour de 87,5 %, mais au prix d’une complexité computationnelle bien plus élevée. Ainsi, ntree = 500 représente un compromis optimal, maximisant la précision tout en évitant une surcharge des ressources.
+
+
+| ntree  | Précision | Sensibilité | Spécificité | Balanced Accuracy | Kappa  |
+|--------|-----------|-------------|-------------|-------------------|--------|
+| 50     | 85,90 %   | 91,12 %     | 79,41 %     | 85,27 %           | 0,712  |
+| 500    | 87,87 %   | 92,31 %     | 82,35 %     | 87,33 %           | 0,7525 |
+| 5000   | 87,54 %   | 91,72 %     | 82,35 %     | 87,03 %           | 0,746  |
+| 50000  | 86,89 %   | 91,72 %     | 80,88 %     | 86,30 %           | 0,7323 |
+
 
 **Tableau 9 : Influence du nombre d’arbres (ntree) sur les performances du modèle Random Forest**
 
