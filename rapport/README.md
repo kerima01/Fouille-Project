@@ -113,7 +113,7 @@ Dans le cadre de cette étude, quatre algorithmes de classification ont été im
 
 Afin d’évaluer les performances des modèles dans des conditions proches de la réalité, une séparation du jeu de données a été réalisée. Nous avons appliqué un partitionnement aléatoire stratifié, de manière à répartir les individus dans les deux sous-ensembles (2/3 pour l'entraînement, 1/3 pour le test) tout en maintenant les proportions des classes (malade / non-malade) équilibrées dans chaque groupe.
 
-## Modèle 1 : Forêt Aléatoire (Random Forest)
+## 1- Modèle 1 : Forêt Aléatoire (Random Forest)
 
 Le modèle Random Forest a été entraîné à l’aide de la fonction randomForest() du package R correspondant, avec un nombre standard de 500 arbres de décision (paramètre ntree = 500). Ce choix permet un bon compromis entre précision, temps de calcul et complexité du modèle. La Forêt Aléatoire génère chaque arbre à partir d’un sous-échantillon aléatoire du jeu de données et sélectionne à chaque nœud un sous-ensemble de variables, ce qui en fait un modèle robuste face à la suradaptation et aux corrélations entre variables.
 À l’issue de l’apprentissage, les prédictions sur le jeu de test ont permis d’évaluer les performances de manière objective. Le modèle affiche une précision globale (accuracy) de 86,6 %, indiquant que plus de huit individus sur dix ont été correctement classés. L’indice Kappa atteint 0,7267, ce qui correspond à un accord substantiel entre les prédictions du modèle et les étiquettes réelles. Le modèle montre une sensibilité de 89,53 %, c’est-à-dire qu’il détecte correctement près de 9 malades sur 10, ce qui est crucial pour une application médicale où les faux négatifs sont coûteux. La spécificité atteint 82,84 %, assurant également une bonne capacité à identifier les individus sains.
@@ -123,4 +123,15 @@ Les valeurs prédictives positives et négatives sont respectivement de 87,01 % 
 **Tableau 1 : Matrice de confusion du modèle Random Forest avec ntree = 500**
 
 Ce premier modèle constitue une base solide pour la suite de l’étude. Il sera par la suite affiné par des ajustements de paramètres et éventuellement comparé à d’autres approches, mais ses performances initiales confirment son potentiel élevé pour ce type de tâche.
+
+## 2- Modèle 2 : Naïve Bayes
+Le deuxième modèle exploré dans cette étude est le classifieur Naïve Bayes, implémenté à l’aide de la fonction naiveBayes() du package e1071. Ce type de modèle repose sur une approche probabiliste dérivée du théorème de Bayes, qui suppose que les variables explicatives sont conditionnellement indépendantes entre elles, étant donné la variable cible. Bien que cette hypothèse d’indépendance soit souvent violée dans les jeux de données réels, elle permet de construire des modèles efficaces, simples et rapides à entraîner.
+À l’issue de la phase d’apprentissage, les prédictions sur l’échantillon de test ont révélé une performance particulièrement remarquable du modèle. Le taux de précision globale (accuracy) atteint 88,56 %, ce qui témoigne d'une excellente capacité de classification sur des données jamais vues. Cette précision est accompagnée d’un intervalle de confiance à 95 % compris entre 84,45 % et 91,90 %, traduisant une grande stabilité statistique du modèle.
+
+L’indice Kappa, égal à 0,7682, indique un fort accord entre les prédictions et la vérité terrain, bien supérieur au simple hasard. Le modèle parvient à détecter 88,95 % des individus réellement malades (sensibilité) tout en identifiant correctement 88,06 % des individus en bonne santé (spécificité). Cette symétrie entre les deux indicateurs montre que le modèle n’est pas biaisé en faveur d’une classe au détriment de l’autre.
+En termes d’utilité clinique, la valeur prédictive positive (PPV) s’élève à 90,53 %, ce qui signifie que plus de 9 individus sur 10 prédits comme malades le sont effectivement. La valeur prédictive négative (NPV) atteint 86,13 %, assurant aussi une fiabilité importante lorsqu’un patient est classé comme sain. Enfin, la balanced accuracy, qui mesure la moyenne entre la sensibilité et la spécificité, est de 88,51 %, un score élevé qui confirme la robustesse du classifieur, même en présence de classes légèrement déséquilibrées.
+
+**Tableau 2 : Matrice de confusion du modèle Naïve Bayes (accuracy = 88,56 %)]**
+
+Ces résultats montrent qu’en dépit de la simplicité des hypothèses qui le sous-tendent, le modèle Naïve Bayes peut s'avérer extrêmement performant. Sa rapidité d'exécution, son interprétabilité intuitive, et sa capacité à fournir des probabilités explicites font de lui un candidat particulièrement adapté aux problématiques biomédicales, où la lisibilité des décisions est aussi importante que la performance brute.
 
