@@ -95,6 +95,17 @@ L’utilisation de ces modèles peut apporter une aide précieuse pour le diagno
 - **Identification des facteurs de risque :** Déterminer les variables les plus influentes dans la prédiction des maladies cardiovasculaires.  
 - **Discussion et recommandations :** Interpréter les résultats pour proposer des pistes d’amélioration en prévention et en détection précoce.    
 
+# **3- Principaux Résulats**  
+
+Les analyses réalisées montrent que les modèles d'apprentissage automatique, notamment les forêts aléatoires et le Naïve Bayes avec lissage de Laplace, offrent d'excellentes performances en matière de prédiction des maladies cardiovasculaires. Ces modèles ont montré une précision, une sensibilité et une robustesse supérieures, mettant en évidence l'importance de certaines variables cliniques telles que la pente du segment ST (ST_Slope), l'indice Oldpeak, et les types de douleurs thoraciques (ChestPainType).  
+
+Bien que certaines variables classiques comme l'âge ou la pression artérielle au repos aient eu un impact modéré dans notre modèle, elles restent essentielles dans un cadre clinique plus large. Ces résultats soulignent l'importance d'intégrer des tests dynamiques dans les protocoles de dépistage et plaident pour une médecine plus réactive et personnalisée.  
+
+En conclusion, cette étude illustre la pertinence de l'apprentissage automatique dans l'aide à la décision médicale. Elle ouvre la voie à une meilleure stratification des risques, tout en soulignant la nécessité d'un dialogue constant entre la data science et le savoir médical pour garantir une application éthique, explicable et efficace de ces outils dans la pratique clinique.  
+
+
+Pour une analyse approfondie de la méthodologie employée, des résultats obtenus et des recommandations formulées, veuillez consulter le fichier README.md situé dans le répertoire rapport.  
+
 ## **Références :**  
 1- World Health Organization. (2021). Cardiovascular diseases (CVDs). Lien vers le rapport https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)  
 2- Benjamin, E. J., et al. (2019). Heart Disease and Stroke Statistics—2019 Update: A Report From the American Heart Association.  
