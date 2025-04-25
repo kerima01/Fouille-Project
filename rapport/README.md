@@ -1,6 +1,6 @@
 # FOUILLE DE DONNÉES
 ---
-# **Projet : PRÉDICTION DES MALADIES CARDIOVASCULAIRES PAR APPRENTISSAGE AUTOMATIQUE**
+# **Projet : PRÉDICTION DES MALADIES CARDIOVASCULAIRES A L'AIDE D'ALGORITHMES D'APPRENTISSAGE AUTOMATIQUE**
 ---
 ## Rapport
 ---
@@ -237,14 +237,7 @@ Les cours et travaux pratiques effectués en fouille de données, qui ont consti
 - Le logiciel R, utilisé pour l'implémentation des méthodes Naïve Bayes et Random Forest, en s’appuyant sur les packages dédiés et l’aide intégrée de R.
 - Les références bibliographiques citées en annexe, qui nous ont permis de mieux cadrer le contexte biologique ainsi que d'orienter certaines étapes de traitement ou de visualisation.
 - Concernant l'utilisation d'outils d'intelligence artificielle, nous avons eu recours occasionnellement à ChatGPT afin d'obtenir des explications complémentaires sur certaines méthodes abordées en cours (notamment pour clarifier des points liés à Naïve Bayes et KNN)
-
-
-# Auteurs
-Hawa BALDE  
-Issa KERIMA-KHALIL  
-
-Master Bioinformatique et Biologie des Systèmes  
-Université Toulouse Paul Sabatier 2024-2025  
+ 
 
 # Références
 1- World Health Organization. (2021). Cardiovascular diseases (CVDs). Récupéré de : https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)  
@@ -256,6 +249,12 @@ Université Toulouse Paul Sabatier 2024-2025
 7- usuf, S., Hawken, S., Ôunpuu, S., et al. (2004). Effect of potentially modifiable risk factors associated with myocardial infarction in 52 countries (the INTERHEART study): case-control study.  
 8- Lloyd-Jones, D. M., Hong, Y., Labarthe, D., et al. (2010). Defining and setting national goals for cardiovascular health promotion and disease reduction.
 
+----
+# Auteurs
+**Issa KERIMA-KHALIL**   
+**Hawa BALDE**    
 
+Master Bioinformatique et Biologie des Systèmes  
+Université Toulouse Paul Sabatier 2024-2025  
 
 
