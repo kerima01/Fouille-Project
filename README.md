@@ -59,14 +59,6 @@ GitLab va copier la totalité du projet et vous pourrez travailler sur votre pro
 - En plus, cela va me permettre de suivre le niveau d'activité de votre projet et des contributions.
 - Il est donc important pour chacun de vous d'utiliser git, GitLab et leurs fonctionnalités. Il ne s'agit surtout pas de cloner une fois le projet au début, puis de travailler uniquement sur votre copie, pour déposer toutes les modifications à la fin en une fois. GitLab devrait **vous permettre de vous répartir certaines tâches** puis déposer et partager vos résultats avec l'autre membre de votre groupe. De même, pour la rédaction de la doc utilisateur et du rapport. Cela devrait vous permettre de vous répartir des parties à rédiger pour ensuite fusionner les documents produits chacun de votre côté.
 
-# Liens
-
-- Projet systèmes ABC : https://gitlab.com/rbarriot/datamining.abc
-- Jeux de données hébergées sur 
-  - kaggle : https://www.kaggle.com/datasets
-  - UC Irvine Machine Learning Repository : http://archive.ics.uci.edu/
-  - Wikipedia : https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research#Biological_data
-- Mini-tutoriel git : https://gitlab.com/rbarriot/guides/-/tree/master/git
 
 # **1- Contexte**
 Les maladies cardiovasculaires (MCV) représentent la première cause de mortalité dans le monde, avec environ 17,9 millions de décès par an, soit environ 31% de tous les décès mondiaux (World Health Organization, 2021) . Parmi ces décès, la grande majorité est due à des crises cardiaques et des accidents vasculaires cérébraux (AVC). Il est donc crucial d’identifier et de traiter les patients à risque avant l’apparition de ces événements graves.
