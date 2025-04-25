@@ -95,7 +95,7 @@ L’utilisation de ces modèles peut apporter une aide précieuse pour le diagno
 - **Identification des facteurs de risque :** Déterminer les variables les plus influentes dans la prédiction des maladies cardiovasculaires.  
 - **Discussion et recommandations :** Interpréter les résultats pour proposer des pistes d’amélioration en prévention et en détection précoce.    
 
-# **3- Principaux Résulats**  
+# **3- Résultats principaux**  
 
 Les analyses réalisées montrent que les modèles d'apprentissage automatique, notamment les forêts aléatoires et le Naïve Bayes avec lissage de Laplace, offrent d'excellentes performances en matière de prédiction des maladies cardiovasculaires. Ces modèles ont montré une précision, une sensibilité et une robustesse supérieures, mettant en évidence l'importance de certaines variables cliniques telles que la pente du segment ST (ST_Slope), l'indice Oldpeak, et les types de douleurs thoraciques (ChestPainType).  
 
