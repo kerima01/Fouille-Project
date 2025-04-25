@@ -265,6 +265,36 @@ Notre groupe est composé de deux personnes et nous avons opté pour une organis
     - Analyse de k-Nearest Neighbors (KNN), Arbre de Décision et évaluation des performances : Hawa
     - Interprétation et analyse des résultats : Hawa, Issa
     -Conclusion : Hawa, Issa
+## 3- Diagramme de Gantt: 
+
+
+## 4- Méthodologie de travail:
+Ce projet a été réalisé principalement en s'appuyant sur :
+Les cours et travaux pratiques effectués en fouille de données, qui ont constitué la base méthodologique pour la préparation des données, l'analyse exploratoire, la mise en œuvre des algorithmes de classification et l'interprétation des résultats. Nous avons notamment repris le script python fourni en TP pour le K plus proches voisins (KNN).
+
+
+Les supports de l'UE Analyse de Données Multivariées (ADM), qui nous ont guidés dans la mise en œuvre du modèle arbres de décision, en adaptant les exemples vus en TP à notre jeu de données.
+
+
+Le logiciel R, utilisé pour l'implémentation des méthodes Naïve Bayes et Random Forest, en s’appuyant sur les packages dédiés et l’aide intégrée de R.
+
+
+Les références bibliographiques citées en annexe, qui nous ont permis de mieux cadrer le contexte biologique ainsi que d'orienter certaines étapes de traitement ou de visualisation.
+
+
+Concernant l'utilisation d'outils d'intelligence artificielle, nous avons eu recours occasionnellement à ChatGPT afin d'obtenir des explications complémentaires sur certaines méthodes abordées en cours (notamment pour clarifier des points liés à Naïve Bayes et KNN)
+
+
+
+# VIII. Références
+World Health Organization. (2021). Cardiovascular diseases (CVDs). Récupéré de : https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)
+Benjamin, E. J., et al. (2019). Heart Disease and Stroke Statistics—2019 Update: A Report From the American Heart Association.
+Rafi S., Gangloff C., Paulhet E., Grimault O., Soulat L., Bouzillé G., Cuggia M. (2022). Out-of-Hospital Cardiac Arrest Detection by Machine Learning Based on the Phonetic Characteristics of the Caller's Voice.
+Byrsell, F., Claesson, A., Ringh, M., Svensson, L., Jonsson, M., Nordberg, P., Forsberg, S., Hollenberg, J., & Nord, A. (2021). Machine learning can support dispatchers to better and faster recognize out-of-hospital cardiac arrest during emergency calls: A retrospective study.
+European Society of Cardiology (ESC). (2019). 2019 ESC Guidelines on cardiovascular disease prevention in clinical practice.
+American Heart Association (AHA). (2021). 2021 Dietary Guidance to Improve Cardiovascular Health: A Scientific Statement From the American Heart Association.
+usuf, S., Hawken, S., Ôunpuu, S., et al. (2004). Effect of potentially modifiable risk factors associated with myocardial infarction in 52 countries (the INTERHEART study): case-control study.
+Lloyd-Jones, D. M., Hong, Y., Labarthe, D., et al. (2010). Defining and setting national goals for cardiovascular health promotion and disease reduction.
 
 
 
